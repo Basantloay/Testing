@@ -1,0 +1,53 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1586224849641' stop='1586224869766'>
+    <name>Testing login</name>
+    <title>Testing login</title>
+    <test-cases>
+        <test-case start='1586224849641' status='failed' stop='1586224859319'>
+            <name>should have error message for incorrect username</name>
+            <title>should have error message for incorrect username</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>TypeError: newlogin.redErrormsg.toContain is not a function</message>
+                <stack-trace>TypeError: newlogin.redErrormsg.toContain is not a function
+                    at UserContext.&lt;anonymous> (C:\Users\Pavilion\Documents\VScode\plz work\specs.ts:16:39)
+                    at step (C:\Users\Pavilion\Documents\VScode\plz work\jsfiles\specs.js:33:23)
+                    at Object.next (C:\Users\Pavilion\Documents\VScode\plz work\jsfiles\specs.js:14:53)
+                    at C:\Users\Pavilion\Documents\VScode\plz work\jsfiles\specs.js:8:71
+                    at new Promise (&lt;anonymous>)
+                    at __awaiter (C:\Users\Pavilion\Documents\VScode\plz work\jsfiles\specs.js:4:12)
+                    at UserContext.&lt;anonymous> (C:\Users\Pavilion\Documents\VScode\plz work\jsfiles\specs.js:48:16)
+                    at C:\Users\Pavilion\AppData\Roaming\npm\node_modules\protractor\node_modules\jasminewd2\index.js:112:25
+                    at new ManagedPromise (C:\Users\Pavilion\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+                    at ControlFlow.promise (C:\Users\Pavilion\AppData\Roaming\npm\node_modules\protractor\node_modules\selenium-webdriver\lib\promise.js:2505:12)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1586224859319' status='passed' stop='1586224864058'>
+            <name>should have error message for incorrect password</name>
+            <title>should have error message for incorrect password</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1586224864058' status='passed' stop='1586224866897'>
+            <name>no email</name>
+            <title>no email</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1586224866897' status='passed' stop='1586224869764'>
+            <name>no password</name>
+            <title>no password</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
