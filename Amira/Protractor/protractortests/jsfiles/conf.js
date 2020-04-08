@@ -10,7 +10,8 @@ exports.config = {
     capabilities: {
         browserName: 'chrome'
     },
-    specs: ['./specs.js'],
+    //specs: ['./specs/testsLogin.js'],
+    specs: ['./specs/testsSignup.js'],
     // seleniumAddress: 'http://localhost:4444/wd/hub',
     // You could set no globals to true to avoid jQuery '$' and protractor '$'
     // collisions on the global namespace.

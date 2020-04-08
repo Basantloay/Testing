@@ -10,7 +10,8 @@ export const config: Config = {
   capabilities: {
     browserName: 'chrome'
   },
-  specs: ['./specs.js'],
+  //specs: ['./specs/testsLogin.js'],
+  specs: ['./specs/testsSignup.js'],
 
   // seleniumAddress: 'http://localhost:4444/wd/hub',
 

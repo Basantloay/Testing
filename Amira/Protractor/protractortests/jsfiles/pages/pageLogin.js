@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var protractor_1 = require("protractor");
 var pageLogin = /** @class */ (function () {
     function pageLogin() {
+        //http://3.137.69.49/account.mayestro/signup
         this.emailInput = protractor_1.element(protractor_1.by.xpath("//input[@name='email']"));
         this.passwordInput = protractor_1.element(protractor_1.by.xpath("//input[@name='password']"));
         this.loginBtn = protractor_1.element(protractor_1.by.xpath("//button[@type='submit']"));
