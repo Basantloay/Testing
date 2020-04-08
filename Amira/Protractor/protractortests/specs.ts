@@ -2,7 +2,6 @@ import { by, browser, element } from 'protractor'
 import { pageLogin } from './pages/pageLogin';
 
 import { log4jsconf } from "./log4jsconf"
-//var helpers = require('protractor-helpers');
 
 describe('Testing login', function () {
 
