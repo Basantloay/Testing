@@ -12,4 +12,5 @@ var log4jsconf = /** @class */ (function () {
     return log4jsconf;
 }());
 exports.log4jsconf = log4jsconf;
+
 //# sourceMappingURL=log4jsconf.js.map

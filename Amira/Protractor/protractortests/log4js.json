@@ -1,4 +1,5 @@
 {
+
     "appenders": {
     "console" : {
         "type": "console",
@@ -18,4 +19,5 @@
         "default" :{"appenders": ["console", "file"], "level": "DEBUG"},
         "file" : {"appenders": ["file"], "level": "INFO"}
     }
+    
 }

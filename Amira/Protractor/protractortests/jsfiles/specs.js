@@ -39,7 +39,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var protractor_1 = require("protractor");
 var pageLogin_1 = require("./pages/pageLogin");
 var log4jsconf_1 = require("./log4jsconf");
-//var helpers = require('protractor-helpers');
 describe('Testing login', function () {
     beforeEach(function () {
         protractor_1.browser.get('http://3.137.69.49/account.mayestro/login');
