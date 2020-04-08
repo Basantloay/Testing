@@ -11,6 +11,9 @@ var pageLogin = /** @class */ (function () {
         this.errorPassword = protractor_1.element(protractor_1.by.xpath("//span[@class='ng-star-inserted']"));
         this.termsAndConditions = protractor_1.element(protractor_1.by.xpath("//a[.='Terms & Conditions']"));
         this.privacyPolicy = protractor_1.element(protractor_1.by.xpath("//a[.='Privacy Policy.']"));
+        this.rememberMe = protractor_1.element(protractor_1.by.xpath("//mat-checkbox[@id='mat-checkbox-1']/label/div"));
+        this.forgotPassword = protractor_1.element(protractor_1.by.xpath("//a[.='Forgot your password?']"));
+        this.signUp = protractor_1.element(protractor_1.by.xpath("//a[contains(.,'sign up for mayestro')]"));
     }
     return pageLogin;
 }());

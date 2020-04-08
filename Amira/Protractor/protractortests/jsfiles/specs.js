@@ -39,8 +39,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var protractor_1 = require("protractor");
 var pageLogin_1 = require("./pages/pageLogin");
 var log4jsconf_1 = require("./log4jsconf");
+var newlogin = new pageLogin_1.pageLogin();
 describe('Testing login', function () {
-    beforeEach(function () {
+    beforeAll(function () {
         protractor_1.browser.get('http://3.137.69.49/account.mayestro/login');
         var browserTitle = protractor_1.browser.getTitle();
         browserTitle.then(function (txt) {
@@ -49,16 +50,32 @@ describe('Testing login', function () {
     });
     it('cursor on email by default FAIL', function () {
         return __awaiter(this, void 0, void 0, function () {
-            var newlogin, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
+            var currentElement;
+            return __generator(this, function (_a) {
+                protractor_1.browser.sleep(2000);
+                currentElement = protractor_1.browser.driver.switchTo().activeElement();
+                expect(currentElement.getId()).toEqual(newlogin.emailInput.getId());
+                return [2 /*return*/];
+            });
+        });
+    });
+    it('login disabled until..', function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, _b;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
                     case 0:
-                        protractor_1.browser.sleep(2000);
-                        newlogin = new pageLogin_1.pageLogin();
+                        protractor_1.browser.refresh();
                         _a = expect;
-                        return [4 /*yield*/, newlogin.emailInput.isSelected()];
+                        return [4 /*yield*/, newlogin.loginBtn.isEnabled()];
                     case 1:
-                        _a.apply(void 0, [_b.sent()]).toBe(true);
+                        _a.apply(void 0, [_c.sent()]).toBe(false);
+                        newlogin.emailInput.sendKeys('a');
+                        newlogin.passwordInput.sendKeys('11111111');
+                        _b = expect;
+                        return [4 /*yield*/, newlogin.loginBtn.isEnabled()];
+                    case 2:
+                        _b.apply(void 0, [_c.sent()]).toBe(true);
                         return [2 /*return*/];
                 }
             });
@@ -66,12 +83,11 @@ describe('Testing login', function () {
     });
     it('valid login', function () {
         return __awaiter(this, void 0, void 0, function () {
-            var newlogin, _a;
+            var _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        protractor_1.browser.sleep(2000);
-                        newlogin = new pageLogin_1.pageLogin();
+                        protractor_1.browser.refresh();
                         newlogin.emailInput.sendKeys('ahmed@gmail.com');
                         newlogin.passwordInput.sendKeys('12345678');
                         newlogin.loginBtn.click();
@@ -80,6 +96,7 @@ describe('Testing login', function () {
                         return [4 /*yield*/, protractor_1.browser.getCurrentUrl()];
                     case 1:
                         _a.apply(void 0, [_b.sent()]).toContain('http://3.137.69.49/open.mayestro/overview');
+                        protractor_1.browser.navigate().back();
                         return [2 /*return*/];
                 }
             });
@@ -87,12 +104,11 @@ describe('Testing login', function () {
     });
     it('forbidden characters FAIL', function () {
         return __awaiter(this, void 0, void 0, function () {
-            var newlogin, _a;
+            var _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        protractor_1.browser.sleep(1500);
-                        newlogin = new pageLogin_1.pageLogin();
+                        protractor_1.browser.refresh();
                         newlogin.emailInput.clear();
                         newlogin.emailInput.sendKeys("`");
                         _a = expect;
@@ -106,12 +122,11 @@ describe('Testing login', function () {
     });
     it('should have error message for incorrect username', function () {
         return __awaiter(this, void 0, void 0, function () {
-            var newlogin, _a;
+            var _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        protractor_1.browser.sleep(2000);
-                        newlogin = new pageLogin_1.pageLogin();
+                        protractor_1.browser.refresh();
                         newlogin.emailInput.sendKeys('heloo');
                         newlogin.passwordInput.sendKeys('12345678');
                         newlogin.loginBtn.click();
@@ -126,12 +141,11 @@ describe('Testing login', function () {
     });
     it('should have error message for incorrect password', function () {
         return __awaiter(this, void 0, void 0, function () {
-            var newlogin, _a;
+            var _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        protractor_1.browser.sleep(2000);
-                        newlogin = new pageLogin_1.pageLogin();
+                        protractor_1.browser.refresh();
                         newlogin.emailInput.sendKeys('ahmed@gmail.com');
                         newlogin.passwordInput.sendKeys('1234567899');
                         newlogin.loginBtn.click();
@@ -144,20 +158,49 @@ describe('Testing login', function () {
             });
         });
     });
+    it('Testing can not copy password', function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                protractor_1.browser.refresh();
+                newlogin.passwordInput.sendKeys('123456789').then(function () {
+                    newlogin.passwordInput.sendKeys(protractor_1.protractor.Key.CONTROL, 'a');
+                    protractor_1.browser.sleep(1500);
+                    newlogin.passwordInput.sendKeys(protractor_1.protractor.Key.CONTROL, 'c');
+                    protractor_1.browser.sleep(1500);
+                    newlogin.emailInput.sendKeys(protractor_1.protractor.Key.CONTROL, 'v');
+                    protractor_1.browser.sleep(1500);
+                });
+                expect(newlogin.emailInput.getText()).not.toContain(newlogin.passwordInput.getText());
+                return [2 /*return*/];
+            });
+        });
+    });
+    it('Testing tab key', function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                protractor_1.browser.refresh();
+                newlogin.emailInput.sendKeys(protractor_1.protractor.Key.TAB).then(function () {
+                    var currentElement = protractor_1.browser.driver.switchTo().activeElement();
+                    expect(currentElement.getId()).toEqual(newlogin.passwordInput.getId());
+                });
+                return [2 /*return*/];
+            });
+        });
+    });
     it('no email', function () {
         return __awaiter(this, void 0, void 0, function () {
-            var newlogin, _a;
+            var _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        newlogin = new pageLogin_1.pageLogin();
+                        protractor_1.browser.refresh();
                         newlogin.emailInput.click();
                         newlogin.passwordInput.click();
                         _a = expect;
                         return [4 /*yield*/, newlogin.errorEmail.getText()];
                     case 1:
                         _a.apply(void 0, [_b.sent()]).toContain('Please enter your email.');
-                        protractor_1.browser.sleep(2000);
+                        protractor_1.browser.sleep(1500);
                         return [2 /*return*/];
                 }
             });
@@ -165,30 +208,30 @@ describe('Testing login', function () {
     });
     it('no password', function () {
         return __awaiter(this, void 0, void 0, function () {
-            var newlogin, _a;
+            var _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        newlogin = new pageLogin_1.pageLogin();
+                        protractor_1.browser.refresh();
                         newlogin.passwordInput.click();
                         newlogin.emailInput.click();
                         _a = expect;
                         return [4 /*yield*/, newlogin.errorPassword.getText()];
                     case 1:
                         _a.apply(void 0, [_b.sent()]).toContain('Enter a password to continue.');
-                        protractor_1.browser.sleep(2000);
+                        protractor_1.browser.sleep(1500);
                         return [2 /*return*/];
                 }
             });
         });
     });
-    it('terms and conditions', function () {
+    it('terms & conditions and privacy policy', function () {
+        protractor_1.browser.navigate().refresh();
         protractor_1.browser.ignoreSynchronization = true;
         var browserTitle = protractor_1.browser.getTitle();
         browserTitle.then(function (txt) {
             log4jsconf_1.log4jsconf.log().info("Main browser title: " + txt);
         });
-        var newlogin = new pageLogin_1.pageLogin();
         newlogin.termsAndConditions.click();
         newlogin.privacyPolicy.click();
         var windowHandles = protractor_1.browser.getAllWindowHandles();

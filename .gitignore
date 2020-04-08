@@ -1,2 +1,5 @@
 node_modules/
 allure-results/
+Amira/Protractor/protractortests/jsfiles/test.js.map
+Amira/Protractor/protractortests/jsfiles/test.js
+Amira/Protractor/protractortests/test.ts

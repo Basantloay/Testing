@@ -13,6 +13,10 @@ export class pageLogin{
     termsAndConditions = element(by.xpath("//a[.='Terms & Conditions']"));
     privacyPolicy = element(by.xpath("//a[.='Privacy Policy.']"));
 
-    
+    rememberMe = element(by.xpath("//mat-checkbox[@id='mat-checkbox-1']/label/div"));
+    forgotPassword = element(by.xpath("//a[.='Forgot your password?']"));
+    signUp = element(by.xpath("//a[contains(.,'sign up for mayestro')]"));
+
+
 }
 
