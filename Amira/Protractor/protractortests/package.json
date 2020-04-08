@@ -14,15 +14,16 @@
     "allure-commandline": "2.9.0"
   },
   "devDependencies": {
-    "@types/node": "~13.9.1",
     "@types/jasmine": "^3.5.9",
     "@types/jasminewd2": "^2.0.6",
+    "@types/node": "~13.9.1",
     "jasmine": "3.5.0",
+    "jasmine-allure-reporter": "1.0.2",
+    "jasmine-spec-reporter": "^4.2.1",
     "log4js": "6.1.2",
     "protractor": "~5.4.3",
-    "typescript": "~3.8.3",
-    "jasmine-spec-reporter": "^4.2.1",
-    "jasmine-allure-reporter": "1.0.2"
+    "protractor-helpers": "^1.1.812",
+    "typescript": "~3.8.3"
   },
   "name": "e2eprotractor"
 }
