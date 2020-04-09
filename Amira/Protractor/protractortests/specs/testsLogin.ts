@@ -18,33 +18,29 @@ describe('Testing login', function () {
   
   
   it('responsiveness', function () {
-    //from https://stackoverflow.com/questions/22305297/run-protractor-tests-with-different-window-sizes
-    
-    for (var i = 0; i < 4; i++) {
-        switch (i) {
-            case 0:
-                //set resolution 1
-                browser.manage().window().setSize(320, 480);
-                browser.sleep(1000)
-                break;
-            case 1:
-                //set resolution 2
-                browser.manage().window().setSize(600, 800);
-                browser.sleep(1000)
-                break;
-            case 2:
-                //set resolution 3
-                browser.manage().window().setSize(768, 1024);
-                browser.sleep(1000)
-                break;
-            case 3:
-                //set resolution 4
-                browser.manage().window().setSize(1080, 1920);
-                browser.sleep(1000)
-                break;
-            default:
-                return;
-        }
+
+    for (var i = 0; i <= 4; i++) {
+      switch (i) {
+        case 0:
+          browser.manage().window().setSize(320, 480);
+          browser.sleep(1500)
+            break;
+        case 1:
+          browser.manage().window().setSize(600, 800);
+          browser.sleep(1500)
+            break;
+        case 2:
+          browser.manage().window().setSize(768, 1024);
+          browser.sleep(1500)
+            break;
+        case 3:
+          browser.manage().window().setSize(1080, 1920);
+          browser.sleep(1500)
+            break;
+        case 4:
+          browser.manage().window().setSize(1200,1800);
+            return;
+      }
     }
   });
 
