@@ -48,6 +48,35 @@ describe('Testing login', function () {
             log4jsconf_1.log4jsconf.log().info("Browser title: " + txt);
         });
     });
+    it('responsiveness', function () {
+        //from https://stackoverflow.com/questions/22305297/run-protractor-tests-with-different-window-sizes
+        for (var i = 0; i < 4; i++) {
+            switch (i) {
+                case 0:
+                    //set resolution 1
+                    protractor_1.browser.manage().window().setSize(320, 480);
+                    protractor_1.browser.sleep(1000);
+                    break;
+                case 1:
+                    //set resolution 2
+                    protractor_1.browser.manage().window().setSize(600, 800);
+                    protractor_1.browser.sleep(1000);
+                    break;
+                case 2:
+                    //set resolution 3
+                    protractor_1.browser.manage().window().setSize(768, 1024);
+                    protractor_1.browser.sleep(1000);
+                    break;
+                case 3:
+                    //set resolution 4
+                    protractor_1.browser.manage().window().setSize(1080, 1920);
+                    protractor_1.browser.sleep(1000);
+                    break;
+                default:
+                    return;
+            }
+        }
+    });
     it('cursor on email by default FAIL', function () {
         return __awaiter(this, void 0, void 0, function () {
             var currentElement;
