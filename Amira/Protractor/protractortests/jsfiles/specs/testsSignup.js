@@ -40,7 +40,7 @@ var protractor_1 = require("protractor");
 var pageSignup_1 = require("../pages/pageSignup");
 var log4jsconf_1 = require("../log4jsconf");
 var newSignup = new pageSignup_1.pageSignup();
-describe('Testing login', function () {
+describe('Testing signup', function () {
     beforeAll(function () {
         protractor_1.browser.get('http://localhost:4200/account.mayestro/signup');
         var browserTitle = protractor_1.browser.getTitle();

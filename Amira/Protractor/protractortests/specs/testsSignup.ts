@@ -5,7 +5,7 @@ import { log4jsconf } from "../log4jsconf"
 
 let newSignup = new pageSignup();
 
-describe('Testing login', function () {
+describe('Testing signup', function () {
 
   beforeAll(function(){
       browser.get('http://localhost:4200/account.mayestro/signup');
