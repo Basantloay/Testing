@@ -75,166 +75,374 @@ describe('Testing login', function () {
                         var currentElement = protractor_1.browser.driver.switchTo().activeElement();
                         expect(currentElement.getId()).toEqual(Arr[i].getId());
                         Arr[i].sendKeys(protractor_1.protractor.Key.TAB);
-                        protractor_1.browser.sleep(1500);
                     }
                 });
                 return [2 /*return*/];
             });
         });
     });
-    //   it('invalid email format', async function(){
+    it('invalid email format', function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        protractor_1.browser.refresh();
+                        newSignup.emailInput.sendKeys('ahmed@gmail');
+                        newSignup.confirmEmail.click();
+                        _a = expect;
+                        return [4 /*yield*/, newSignup.errorEmailInput.getText()];
+                    case 1:
+                        _a.apply(void 0, [_b.sent()]).toContain('The email address you supplied is invalid.');
+                        return [2 /*return*/];
+                }
+            });
+        });
+    });
+    it('email already exists', function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        protractor_1.browser.refresh();
+                        newSignup.emailInput.sendKeys('ahmed@gmail.com');
+                        newSignup.confirmEmail.click();
+                        _a = expect;
+                        return [4 /*yield*/, newSignup.errorExistingEmail.getText()];
+                    case 1:
+                        _a.apply(void 0, [_b.sent()]).toContain("We're sorry, that email is taken.");
+                        protractor_1.browser.sleep(1500);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    });
+    it('no email', function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        protractor_1.browser.refresh();
+                        newSignup.emailInput.click();
+                        newSignup.confirmEmail.click();
+                        _a = expect;
+                        return [4 /*yield*/, newSignup.errorEmailInput.getText()];
+                    case 1:
+                        _a.apply(void 0, [_b.sent()]).toContain('Please enter your email.');
+                        protractor_1.browser.sleep(1500);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    });
+    it('invalid email confirmation format', function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        protractor_1.browser.refresh();
+                        newSignup.confirmEmail.sendKeys('ahmedd@gmail');
+                        newSignup.passwordInput.click();
+                        _a = expect;
+                        return [4 /*yield*/, newSignup.errorConfirmEmailInput.getText()];
+                    case 1:
+                        _a.apply(void 0, [_b.sent()]).toContain('The email address you supplied is invalid.');
+                        return [2 /*return*/];
+                }
+            });
+        });
+    });
+    it('no email confirmation', function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        protractor_1.browser.refresh();
+                        newSignup.confirmEmail.click();
+                        newSignup.passwordInput.click();
+                        _a = expect;
+                        return [4 /*yield*/, newSignup.errorConfirmEmailInput.getText()];
+                    case 1:
+                        _a.apply(void 0, [_b.sent()]).toContain('Please enter your email.');
+                        protractor_1.browser.sleep(1500);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    });
+    it('email and email confirmation do not match', function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        protractor_1.browser.refresh();
+                        newSignup.emailInput.sendKeys('ahmedd@gmail.com');
+                        newSignup.confirmEmail.sendKeys('ahmeddd@gmail.com');
+                        newSignup.passwordInput.click();
+                        _a = expect;
+                        return [4 /*yield*/, newSignup.errorDoesNotMatch.getText()];
+                    case 1:
+                        _a.apply(void 0, [_b.sent()]).toContain("Email address doesn't match.");
+                        return [2 /*return*/];
+                }
+            });
+        });
+    });
+    it('password too short', function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        protractor_1.browser.refresh();
+                        newSignup.passwordInput.sendKeys('123');
+                        newSignup.nicknameInput.click();
+                        _a = expect;
+                        return [4 /*yield*/, newSignup.errorPasswordInput.getText()];
+                    case 1:
+                        _a.apply(void 0, [_b.sent()]).toContain("Your password is too short.");
+                        return [2 /*return*/];
+                }
+            });
+        });
+    });
+    it('no password', function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        protractor_1.browser.refresh();
+                        newSignup.passwordInput.click();
+                        newSignup.nicknameInput.click();
+                        _a = expect;
+                        return [4 /*yield*/, newSignup.errorPasswordInput.getText()];
+                    case 1:
+                        _a.apply(void 0, [_b.sent()]).toContain('Enter a password to continue.');
+                        return [2 /*return*/];
+                }
+            });
+        });
+    });
+    it('nickname limit', function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        protractor_1.browser.refresh();
+                        newSignup.nicknameInput.sendKeys("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                        protractor_1.browser.sleep(2000);
+                        _a = expect;
+                        return [4 /*yield*/, newSignup.nicknameInput.getAttribute('value')];
+                    case 1:
+                        _a.apply(void 0, [_b.sent()]).toEqual('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+                        return [2 /*return*/];
+                }
+            });
+        });
+    });
+    it("invalid birthDay", function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        protractor_1.browser.refresh();
+                        newSignup.birthDay.sendKeys(35);
+                        newSignup.birthYear.click();
+                        _a = expect;
+                        return [4 /*yield*/, newSignup.errorInvalidDateOfBirth.getText()];
+                    case 1:
+                        _a.apply(void 0, [_b.sent()]).toContain('Please enter a valid day of the month.');
+                        return [2 /*return*/];
+                }
+            });
+        });
+    });
+    //   it("invalid birthMonth", async function(){
     //     browser.refresh();
-    //     newSignup.emailInput.sendKeys('ahmed@gmail');
-    //     newSignup.confirmEmail.click();
-    //     expect(await newSignup.errorEmailInput.getText()).toContain('The email address you supplied is invalid.');
     //   })
-    //   it('email already exists', async function() {
-    //     browser.refresh();
-    //     newSignup.emailInput.sendKeys('ahmed@gmail.com');
-    //     newSignup.confirmEmail.click();
-    //     expect(await newSignup.errorExistingEmail.getText()).toContain("We're sorry, that email is taken.");
-    //     browser.sleep(1500)
-    //   });
-    //   it('no email', async function() {
-    //     browser.refresh();
-    //     newSignup.emailInput.click();
-    //     newSignup.confirmEmail.click();
-    //     expect(await newSignup.errorEmailInput.getText()).toContain('Please enter your email.');
-    //     browser.sleep(1500)
-    //   });
-    //   it('invalid email confirmation format', async function(){
-    //     browser.refresh();
-    //     newSignup.confirmEmail.sendKeys('ahmedd@gmail');
-    //     newSignup.passwordInput.click();
-    //     expect(await newSignup.errorConfirmEmailInput.getText()).toContain('The email address you supplied is invalid.');
-    //   })
-    //   it('no email confirmation', async function() {
-    //     browser.refresh();
-    //     newSignup.confirmEmail.click();
-    //     newSignup.passwordInput.click();
-    //     expect(await newSignup.errorConfirmEmailInput.getText()).toContain('Please enter your email.');
-    //     browser.sleep(1500)
-    //   });
-    //   it('email and email confirmation do not match', async function(){
-    //     browser.refresh();
-    //     newSignup.emailInput.sendKeys('ahmedd@gmail.com');
-    //     newSignup.confirmEmail.sendKeys('ahmeddd@gmail.com');
-    //     newSignup.passwordInput.click();
-    //     expect(await newSignup.errorDoesNotMatch.getText()).toContain("Email address doesn't match.");
-    //   })
-    //   it('password too short', async function(){
-    //     browser.refresh();
-    //     newSignup.passwordInput.sendKeys('123');
-    //     newSignup.nicknameInput.click();
-    //     expect(await newSignup.errorPasswordInput.getText()).toContain("Your password is too short.");
-    //   })
-    //   it('no password', async function(){
-    //     browser.refresh();
-    //     newSignup.passwordInput.click();
-    //     newSignup.nicknameInput.click();
-    //     expect(await newSignup.errorPasswordInput.getText()).toContain('Enter a password to continue.');
-    //   })
-    //   it('nickname limit', async function(){
-    //     browser.refresh();
-    //     newSignup.nicknameInput.sendKeys("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-    //     browser.sleep(2000)
-    //     expect(await newSignup.nicknameInput.getAttribute('value')).toEqual('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-    //   })
-    //   it("invalid birthDay", async function(){
-    //     browser.refresh();
-    //     newSignup.birthDay.sendKeys(35);
-    //     newSignup.birthYear.click();
-    //     expect(await newSignup.errorInvalidDateOfBirth.getText()).toContain('Please enter a valid day of the month.');
-    //   })
-    // //   it("invalid birthMonth", async function(){
-    // //     browser.refresh();
-    // //   })
-    //     it("invalid birthYear < 1900", async function(){
-    //         browser.refresh();
-    //         newSignup.birthYear.sendKeys(1899);
-    //         newSignup.birthDay.click();
-    //         expect(await newSignup.errorBirthYear.getText()).toContain('Please enter a valid year');
-    //     })
-    //     it("invalid birthYear >= 2000", async function(){
-    //         browser.refresh();
-    //         newSignup.birthYear.sendKeys(2000);
-    //         newSignup.birthDay.click();
-    //         expect(await newSignup.errorBirthYear.getText()).toContain("Sorry, but you don't meet Spotify's age requirements.");
-    //     })
-    //     it("male gender selected", async function(){
-    //         browser.refresh();
-    //         newSignup.genderMale.click();
-    //         expect(await newSignup.genderMale.isSelected()).toBe(true);
-    //       })
-    //     it("female gender selected", async function(){
-    //         browser.refresh();
-    //         newSignup.genderFemale.click();
-    //         expect(await newSignup.genderFemale.isSelected()).toBe(true);
-    //     })
-    //     it("share registration selected", async function(){
-    //         browser.refresh();
-    //         newSignup.shareRegistration.click();
-    //         expect(await newSignup.shareRegistration.isSelected()).toBe(true);
-    //     })
-    //     it('valid signup',async function(){
-    //         browser.refresh();
-    //         newSignup.emailInput.sendKeys('ahmedd@gmail.com');
-    //         newSignup.confirmEmail.sendKeys('ahmedd@gmail.com');
-    //         newSignup.passwordInput.sendKeys('123456789');
-    //         newSignup.nicknameInput.sendKeys('Ahmed');
-    //         newSignup.birthDay.sendKeys('1');
-    //        newSignup.birthMonth.click();
-    //         newSignup.Jan.click();
-    //         newSignup.birthYear.sendKeys('1998');
-    //         newSignup.genderMale.click();
-    //         newSignup.shareRegistration.click();
-    //         newSignup.signupBtn.isEnabled().then(async function(){
-    //             newSignup.signupBtn.click();
-    //             browser.sleep(3000)
-    //             expect(await browser.getCurrentUrl()).toContain('http://localhost:4200/open.mayestro/overview')
-    //             browser.navigate().back();
-    //          })
-    //     })
-    //     it('go to login', async function(){
-    //         browser.refresh();
-    //         newSignup.Login.click();
-    //         browser.sleep(2000)
-    //         expect(await browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/login')
-    //         browser.navigate().back();
-    //       })
-    //     it('terms & conditions and privacy policy', function(){
-    //         browser.ignoreSynchronization = true;
-    //         let browserTitle = browser.getTitle();
-    //         browserTitle.then(function(txt){
-    //           log4jsconf.log().info("Main browser title: " + txt);
-    //         })
-    //         newSignup.termsAndConditions.click();
-    //         newSignup.privacyPolicy.click();
-    //         let windowHandles = browser.getAllWindowHandles();
-    //         let parentHandle, childHandle, child2Handle;
-    //         windowHandles.then(function(handles){
-    //             parentHandle = handles[0];
-    //             childHandle = handles[1];
-    //             child2Handle = handles[2];
-    //             browser.switchTo().window(childHandle).then(function(){
-    //                 browser.getTitle().then(function(txt){
-    //                   log4jsconf.log().info("Main browser title: " + txt);
-    //                     browser.close();
-    //                 })
-    //             })
-    //             browser.switchTo().window(child2Handle).then(function(){
-    //                 browser.getTitle().then(function(txt){
-    //                   log4jsconf.log().info("Main browser title: " + txt);
-    //                     browser.close();
-    //                 })
-    //             })
-    //             browser.switchTo().window(parentHandle).then(function(){
-    //                 console.log('Returning to main window...');
-    //                 browser.getTitle().then(function(txt){
-    //                   log4jsconf.log().info("Main browser title: " + txt);
-    //                 })
-    //             })
-    //         })
-    //     })
+    it("invalid birthYear < 1900", function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        protractor_1.browser.refresh();
+                        newSignup.birthYear.sendKeys(1899);
+                        newSignup.birthDay.click();
+                        _a = expect;
+                        return [4 /*yield*/, newSignup.errorBirthYear.getText()];
+                    case 1:
+                        _a.apply(void 0, [_b.sent()]).toContain('Please enter a valid year');
+                        return [2 /*return*/];
+                }
+            });
+        });
+    });
+    it("invalid birthYear >= 2000", function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        protractor_1.browser.refresh();
+                        newSignup.birthYear.sendKeys(2000);
+                        newSignup.birthDay.click();
+                        _a = expect;
+                        return [4 /*yield*/, newSignup.errorBirthYear.getText()];
+                    case 1:
+                        _a.apply(void 0, [_b.sent()]).toContain("Sorry, but you don't meet Spotify's age requirements.");
+                        return [2 /*return*/];
+                }
+            });
+        });
+    });
+    it("male gender selected", function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        protractor_1.browser.refresh();
+                        newSignup.genderMale.click();
+                        _a = expect;
+                        return [4 /*yield*/, newSignup.genderMale.isSelected()];
+                    case 1:
+                        _a.apply(void 0, [_b.sent()]).toBe(true);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    });
+    it("female gender selected", function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        protractor_1.browser.refresh();
+                        newSignup.genderFemale.click();
+                        _a = expect;
+                        return [4 /*yield*/, newSignup.genderFemale.isSelected()];
+                    case 1:
+                        _a.apply(void 0, [_b.sent()]).toBe(true);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    });
+    it("share registration selected", function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        protractor_1.browser.refresh();
+                        newSignup.shareRegistration.click();
+                        _a = expect;
+                        return [4 /*yield*/, newSignup.shareRegistration.isSelected()];
+                    case 1:
+                        _a.apply(void 0, [_b.sent()]).toBe(true);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    });
+    it('valid signup', function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                protractor_1.browser.refresh();
+                newSignup.emailInput.sendKeys('ahmedd@gmail.com');
+                newSignup.confirmEmail.sendKeys('ahmedd@gmail.com');
+                newSignup.passwordInput.sendKeys('123456789');
+                newSignup.nicknameInput.sendKeys('Ahmed');
+                newSignup.birthDay.sendKeys('1');
+                newSignup.birthMonth.click();
+                newSignup.Jan.click();
+                newSignup.birthYear.sendKeys('1998');
+                newSignup.genderMale.click();
+                newSignup.shareRegistration.click();
+                newSignup.signupBtn.isEnabled().then(function () {
+                    return __awaiter(this, void 0, void 0, function () {
+                        var _a;
+                        return __generator(this, function (_b) {
+                            switch (_b.label) {
+                                case 0:
+                                    newSignup.signupBtn.click();
+                                    protractor_1.browser.sleep(3000);
+                                    _a = expect;
+                                    return [4 /*yield*/, protractor_1.browser.getCurrentUrl()];
+                                case 1:
+                                    _a.apply(void 0, [_b.sent()]).toContain('http://localhost:4200/open.mayestro/overview');
+                                    protractor_1.browser.navigate().back();
+                                    return [2 /*return*/];
+                            }
+                        });
+                    });
+                });
+                return [2 /*return*/];
+            });
+        });
+    });
+    it('go to login', function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        protractor_1.browser.refresh();
+                        newSignup.Login.click();
+                        protractor_1.browser.sleep(2000);
+                        _a = expect;
+                        return [4 /*yield*/, protractor_1.browser.getCurrentUrl()];
+                    case 1:
+                        _a.apply(void 0, [_b.sent()]).toContain('http://localhost:4200/account.mayestro/login');
+                        protractor_1.browser.navigate().back();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    });
+    it('terms & conditions and privacy policy', function () {
+        protractor_1.browser.ignoreSynchronization = true;
+        var browserTitle = protractor_1.browser.getTitle();
+        browserTitle.then(function (txt) {
+            log4jsconf_1.log4jsconf.log().info("Main browser title: " + txt);
+        });
+        newSignup.termsAndConditions.click();
+        newSignup.privacyPolicy.click();
+        var windowHandles = protractor_1.browser.getAllWindowHandles();
+        var parentHandle, childHandle, child2Handle;
+        windowHandles.then(function (handles) {
+            parentHandle = handles[0];
+            childHandle = handles[1];
+            child2Handle = handles[2];
+            protractor_1.browser.switchTo().window(childHandle).then(function () {
+                protractor_1.browser.getTitle().then(function (txt) {
+                    log4jsconf_1.log4jsconf.log().info("Main browser title: " + txt);
+                    protractor_1.browser.close();
+                });
+            });
+            protractor_1.browser.switchTo().window(child2Handle).then(function () {
+                protractor_1.browser.getTitle().then(function (txt) {
+                    log4jsconf_1.log4jsconf.log().info("Main browser title: " + txt);
+                    protractor_1.browser.close();
+                });
+            });
+            protractor_1.browser.switchTo().window(parentHandle).then(function () {
+                console.log('Returning to main window...');
+                protractor_1.browser.getTitle().then(function (txt) {
+                    log4jsconf_1.log4jsconf.log().info("Main browser title: " + txt);
+                });
+            });
+        });
+    });
 });
 //# sourceMappingURL=testsSignup.js.map
