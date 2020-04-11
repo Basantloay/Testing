@@ -10,7 +10,7 @@ export const config: Config = {
   capabilities: {
     browserName: 'chrome'
   },
-  specs: ['./specs/testsLogin.js','./specs/testsSignup.js','./specs/testsForgotPassword.js'],
+  specs: ['./specs/testsLogin.js','./specs/testsSignup.js','./specs/testsForgotPassword.js','./specs/playertest.js','./specs/specs.js'],
 
   
   // seleniumAddress: 'http://localhost:4444/wd/hub',
@@ -20,7 +20,7 @@ export const config: Config = {
   noGlobals: true,
 
   onPrepare: () => {
-   //jasmine.getEnv().addReporter((new SpecReporter({ spec: { displayStacktrace: true } })))
+   jasmine.getEnv().addReporter((new SpecReporter({ spec: { displayStacktrace: true } })))
     var AllureReporter = require('jasmine-allure-reporter')
     jasmine.getEnv().addReporter(new AllureReporter({
       resultsDir: 'allure-results'
