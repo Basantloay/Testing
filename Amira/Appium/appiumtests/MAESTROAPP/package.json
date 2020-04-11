@@ -1,0 +1,26 @@
+{
+  "name": "appium-maestro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "webdriverio": "mocha webdriverio.js"
+  },
+  
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "appium-uiautomator2-driver": "^1.49.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^7.1.1",
+    "wd": "^1.12.1"
+  },
+  "devDependencies": {
+    "wdio-appium-service": "^0.2.3",
+    "wdio-mocha-framework": "~0.5.9",
+    "webdriverio": "^6.0.15"
+
+  }
+  
+}

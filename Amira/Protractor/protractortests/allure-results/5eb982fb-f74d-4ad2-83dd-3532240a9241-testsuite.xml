@@ -1,3 +1,4 @@
+
 <?xml version='1.0'?>
 <ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1586635662612' stop='1586635721845'>
     <name>Testing signup</name>
