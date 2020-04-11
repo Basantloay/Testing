@@ -23,7 +23,8 @@
     "log4js": "6.1.2",
     "protractor": "~5.4.3",
     "protractor-helpers": "^1.1.812",
-    "typescript": "~3.8.3"
+    "typescript": "~3.8.3",
+    "tsdoc": "0.0.4"
   },
   "name": "e2eprotractor"
 }

@@ -40,7 +40,11 @@ var protractor_1 = require("protractor");
 var pageLogin_1 = require("../pages/pageLogin");
 var log4jsconf_1 = require("../log4jsconf");
 var newlogin = new pageLogin_1.pageLogin();
+/**This is the specs for login the page  */
 describe('Testing login', function () {
+    /**
+     * getting executed before each test case
+     */
     beforeAll(function () {
         protractor_1.browser.get('http://3.137.69.49/account.mayestro/login');
         var browserTitle = protractor_1.browser.getTitle();
@@ -48,6 +52,9 @@ describe('Testing login', function () {
             log4jsconf_1.log4jsconf.log().info("Browser title: " + txt);
         });
     });
+    /**
+     * tests the responsiveness of the window
+     */
     it('responsiveness', function () {
         for (var i = 0; i <= 4; i++) {
             switch (i) {

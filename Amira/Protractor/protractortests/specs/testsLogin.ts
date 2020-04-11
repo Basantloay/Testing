@@ -5,8 +5,12 @@ import { log4jsconf } from "../log4jsconf"
 
 let newlogin = new pageLogin();
 
+/**This is the specs for login the page  */
 describe('Testing login', function () {
 
+  /**
+   * getting executed before each test case
+   */
   beforeAll(function(){
       browser.get('http://3.137.69.49/account.mayestro/login');
       let browserTitle = browser.getTitle();
@@ -16,7 +20,9 @@ describe('Testing login', function () {
   });
 
   
-  
+  /**
+   * tests the responsiveness of the window 
+   */
   it('responsiveness', function () {
 
     for (var i = 0; i <= 4; i++) {
