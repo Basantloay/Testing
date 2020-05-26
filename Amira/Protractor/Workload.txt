@@ -1,4 +1,0 @@
-Login page
-Signup page
-Forgot password
-
