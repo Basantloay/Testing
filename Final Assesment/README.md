@@ -1,7 +1,9 @@
 * E2E
+
 1- Appium
 
 
-2- Cypress
+2- Protractor
+
 
 * JMeter Apache for stress test
