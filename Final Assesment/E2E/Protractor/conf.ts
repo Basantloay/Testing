@@ -19,9 +19,9 @@ export const config: Config = {
   noGlobals: true,
 
   onPrepare: () => {
-     (global as any).isAngularSite = function (temp:boolean) {
+    (global as any).isAngularSite = function (temp:boolean) {
       browser.ignoreSynchronization = !temp
-    } 
+    }
     // jasmine.getEnv().addReporter((new SpecReporter({ spec: { displayStacktrace: true } })))
     var AllureReporter = require('jasmine-allure-reporter')
     // eslint-disable-next-line no-undef
@@ -31,7 +31,7 @@ export const config: Config = {
     // browser.manage().window().setSize(1366, 768)
     browser.manage().timeouts().implicitlyWait(10000)
     browser.waitForAngularEnabled(false)
-    //browser.ignoreSynchronization = true
+    // browser.ignoreSynchronization = true
   }
 
 }
