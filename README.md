@@ -1,12 +1,28 @@
 # Testing
-This repository contain E2E testscripts for Mayestro by using Protractor+ Typescript to webpages and Appium +JavaScript for android.
-Also, it contains stress test by using Jmeter + Groovy.
+
+******************This repository contains E2E testscripts runned on MAYESTRO and Spotify Original********************
+
+# Used Frameworks
+
+1**Protractor+ Typescript ===> webpages
+
+2**Appium +Java ===> android
+
+3**Jmeter + Groovy ===> stress test
+
+# Protractor
+
 To run tests and install used packages
-for windows :
-in CMD : npm install
+for windows in CMD:
+
+npm install
+
 npm run tsc
+
 protractor protractor .\JSfiles\conf.js
 
-To see Generated files
-in CMD : cd "file path of allure reports"
- allure serve
+To see Generated files in CMD : 
+
+cd "file path of allure reports"
+
+allure serve
