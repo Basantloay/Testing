@@ -11,7 +11,7 @@ describe('Player Test ', function () {
     (global as any).isAngularSite(false)
   })
 
-  it('login test ==> ', async function () {
+  it('login test  ', async function () {
     browser.get('https://open.spotify.com/')
     browser.sleep(50)
     playlist1.clickLogin()
@@ -26,7 +26,7 @@ describe('Player Test ', function () {
     expect<any>(await playlist1.userIcon.getAttribute('title')).toContain('Testing Demo')
   })
 
-  it('Create Playlist from Your Library ==> ', async function () {
+  it('Create First Playlist from Your Library ', async function () {
     playlist1.clickYourLibrary()
     browser.sleep(100)
     expect<any>(await playlist1.Logo.getText()).toContain('Create your first playlist')
@@ -34,5 +34,20 @@ describe('Player Test ', function () {
     playlist1.playlistNameTextBox.sendKeys('first playlist')
     playlist1.clickCreate()
     browser.sleep(200)
+    playlist1.backBtn.click()
+    playlist1.demo1.click()
+    browser.sleep(500)
+    expect<any>(await playlist1.Logo.getText()).toContain('first playlist')
+  })
+
+  it('Delete playlist from your Library ', async function () {
+    // playlist1.demo1.click()
+    // browser.sleep(500)
+    playlist1.moreOptions1.click()
+    browser.sleep(500)
+    playlist1.deleteOption.click()
+    expect<any>(await playlist1.deleteLogo.getText()).toContain('Do you really want to delete this playlist?')
+    playlist1.deleteBtn.click()
+    browser.sleep(1000)
   })
 })
