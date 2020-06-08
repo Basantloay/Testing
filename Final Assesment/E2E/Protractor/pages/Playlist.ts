@@ -7,32 +7,59 @@ export class Playlist {
   User2Password : string = 'E2E123456'
   loginBtn = element(by.className('_2221af4e93029bedeab751d04fab4b8b-scss _1edf52628d509e6baded2387f6267588-scss'))
   UsernameTextBox = element(by.id('login-username'))
-  PasswordTextBox = element(by.css("[for='login-password']"))
+  PasswordTextBox = element(by.id('login-password'))
   rememberMeBtn = element(by.className('control-indicator'))
   logBtn = element(by.className('btn btn-block btn-green ng-binding'))
-
-  /* 
-  //playerURL : string ='http://localhost:4200/mayestro/home'
-  shuffleBtn = element(by.className('fa fa-random'))
-  backBtn = element(by.className('fa fa-step-backward'))
-  pauseBtn = element(by.className('fa fa-pause-circle'))
-  playBtn = element(by.className('fa fa-play-circle'))
-  nextBtn = element(by.className('fa fa-step-forward'))
-  repeatBtn = element(by.className('fa fa-repeat'))
-  volumeOnBtn = element(by.xpath("//button[@class='volumeoff']"))
-  volumeOffBtn = element(by.xpath("//button[@class='volume']"))
-  audioArr = element.all(by.tagName('audio'))
-  count1=this.audioArr.count()
-
-  async lastIndex () {
-    return this.count1.then(function (i:number) {
-      return i - 1
-    })
+  yourLibraryBtn = element(by.className('icon collection-icon'))
+  createPlaylistHomeBtn = element(by.className('fcdf941c8ffa7d0878af0a4f04aa05bb-scss'))
+  LikedSongBtn = element(by.className('ce8ac4aabb35a48dc93a67cf4fedd99c-scss'))
+  Logo = element(by.tagName('h1')) // 'Create your first playlist'
+  createPlaylistLibrary = element(by.className('_2221af4e93029bedeab751d04fab4b8b-scss _1edf52628d509e6baded2387f6267588-scss _4a19a959428c34075eef50bd44ab468f-scss'))
+  playlistNameTextBox = element(by.className('inputBox-input'))
+  cancelBtn = element(by.css('._56a12d0978529b654affa11ca9390bd7-scss'))
+  createBtn = element(by.css('._8fec0262e00c11513faad732021ed012-scss'))
+  userIcon = element(by.className('_4f6cff0f3480e8d8cc3614e38afad63d-scss'))// 'Testing Demo'
+  clickonUserIcon () {
+    this.userIcon.click()
   }
 
-  clickShuffle () {
-    this.shuffleBtn.click()
+  clickCancel () {
+    this.cancelBtn.click()
   }
+
+  clickCreate () {
+    this.createBtn.click()
+  }
+
+  clickLogin () {
+    this.loginBtn.click()
+  }
+
+  clickLog () {
+    this.logBtn.click()
+  }
+
+  clickRemember () {
+    this.rememberMeBtn.click()
+  }
+
+  clickYourLibrary () {
+    this.yourLibraryBtn.click()
+  }
+
+  clickCreateYourPlaylistHome () {
+    this.createPlaylistHomeBtn.click()
+  }
+
+  clickCreateYourPlaylistLibrary () {
+    this.createPlaylistLibrary.click()
+  }
+
+  clickLikedSongs () {
+    this.LikedSongBtn.click()
+  }
+}
+/*
 
   checkShuffleClicked (txt : string) {
     const isShuffled = element(by.className('shuffle')).getCssValue('color')
