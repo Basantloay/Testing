@@ -12,7 +12,7 @@ E2E file contains testscripts runned on MAYESTRO
 
 2**Appium +Java ===> android
 
-3**Jmeter + Groovy ===> stress test
+3**Jmeter + HTTPS requests ===> stress test
 
 # Protractor
 
