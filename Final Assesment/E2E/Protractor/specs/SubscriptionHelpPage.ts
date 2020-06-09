@@ -6,14 +6,14 @@ describe('SubscriptionHelpPage',function(){
     protractor_1.browser.get('https://support.spotify.com/eg-en/account_payment_help/subscription_options/');
 
    
-    it('Test Help Page Scroll Down',() => {
+    it('Test SubscriptionHelpPage Scroll Down',() => {
         protractor_1.browser.executeScript('window.scrollTo(0,10000);').then(function(){
             console.log('++++++SCROLLED Down+++++');
         });
     });
 
 
-    it('Test Help Page Scroll Up',() => {
+    it('Test SubscriptionHelp Page Scroll Up',() => {
         protractor_1.browser.executeScript('window.scrollTo(0,0);').then(function(){
             console.log('++++++SCROLLED UP+++++');
         });
