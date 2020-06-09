@@ -1,17 +1,20 @@
+import { browser, element, by, protractor, Browser } from 'protractor'
+import { Playlist } from '../pages/Playlist
+
 var protractor_1 = require("protractor");
 
 describe('PrivacyandSecuritytPage',function(){
     protractor_1.browser.get('https://support.spotify.com/eg-en/account_payment_help/privacy/');
 
    
-    it('Test Help Page Scroll Down',() => {
+    it('Test PrivacyandSecurity Page Scroll Down',() => {
         protractor_1.browser.executeScript('window.scrollTo(0,10000);').then(function(){
             console.log('++++++SCROLLED Down+++++');
         });
     });
 
 
-    it('Test Help Page Scroll Up',() => {
+    it('Test PrivacyandSecurity Page Scroll Up',() => {
         protractor_1.browser.executeScript('window.scrollTo(0,0);').then(function(){
             console.log('++++++SCROLLED UP+++++');
         });
