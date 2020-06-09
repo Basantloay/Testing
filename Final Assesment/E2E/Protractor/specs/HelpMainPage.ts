@@ -79,7 +79,7 @@ describe('HelpMainPage',function(){
        
     });
 
-    it('tests search bar case 4 (empty space)',function(){
+    it('tests search bar case 4 (input empty space)',function(){
         protractor_1.by.xpath("//h1[.='How can we help you?']")
         protractor_1.element(protractor_1.by.id('search')).sendkeys(' ');
         if (protractor_1.element(protractor_1.by.xpath('protractor_1')).click())
@@ -97,7 +97,7 @@ describe('HelpMainPage',function(){
        
     });
 
-    it('tests search bar case 4 (dot)',function(){
+    it('tests search bar case 5 (input dot)',function(){
         protractor_1.by.xpath("//h1[.='How can we help you?']")
         protractor_1.element(protractor_1.by.id('search')).sendkeys('.');
         if (protractor_1.element(protractor_1.by.xpath('protractor_1')).click())
