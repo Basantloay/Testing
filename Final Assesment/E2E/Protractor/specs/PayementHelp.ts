@@ -5,8 +5,6 @@ var protractor_1 = require("protractor");
 
 describe('PayementHelptPage',function(){
     protractor_1.browser.get('https://support.spotify.com/eg-en/account_payment_help/payment_help//');
-    
-
    
     it('Test PayementHelp Page Scroll Down',() => {
         protractor_1.browser.executeScript('window.scrollTo(0,10000);').then(function(){
