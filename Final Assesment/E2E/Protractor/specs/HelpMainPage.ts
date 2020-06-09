@@ -1,6 +1,11 @@
-var protractor_1 = require("protractor");
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
+import { browser, element, by, protractor, Browser } from 'protractor'
+import { Playlist } from '../pages/Playlist'
 
-describe('demo calculator tests',function(){
+
+
+describe('HelpMainPage',function(){
     protractor_1.browser.get('https://support.spotify.com/eg-en/?_ga=2.151724666.2105580048.1591620644-974573419.1582503200');
 
     it('tests help button',function(){
