@@ -1,4 +1,7 @@
-var protractor_1 = require("protractor");
+import { browser, element, by, protractor, Browser } from 'protractor'
+import { Playlist } from '../pages/Playlist
+
+]]var protractor_1 = require("protractor");
 
 describe('PremiumForFamilyPage',function(){
     protractor_1.browser.get('https://support.spotify.com/eg-en/account_payment_help/premium_for_family/');
