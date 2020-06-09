@@ -3,6 +3,8 @@
 import { browser, element, by, protractor, Browser } from 'protractor'
 import { Playlist } from '../pages/Playlist'
 
+var protractor_1 = require("protractor");
+
 
 
 describe('HelpMainPage',function(){
