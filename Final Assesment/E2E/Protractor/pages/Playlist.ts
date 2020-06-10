@@ -14,11 +14,13 @@ export class Playlist {
   createPlaylistHomeBtn = element(by.className('fcdf941c8ffa7d0878af0a4f04aa05bb-scss'))
   LikedSongBtn = element(by.className('ce8ac4aabb35a48dc93a67cf4fedd99c-scss'))
   Logo = element(by.tagName('h1')) // 'Create your first playlist'
+  Logo2 = element(by.xpath("//h1[@class='_587844af67ca3c14dbf7deb3d5e64f69-scss d437f883c49a54bba1849d160344bcec-scss dc1cc34e88857bd0de4d7a4dc3c528a5-scss']")) //create new playlist
   createPlaylistLibrary = element(by.className('_2221af4e93029bedeab751d04fab4b8b-scss _1edf52628d509e6baded2387f6267588-scss _4a19a959428c34075eef50bd44ab468f-scss'))
   playlistNameTextBox = element(by.className('inputBox-input'))
   cancelBtn = element(by.css('._56a12d0978529b654affa11ca9390bd7-scss'))
   createBtn = element(by.css('._8fec0262e00c11513faad732021ed012-scss'))
   userIcon = element(by.className('_4f6cff0f3480e8d8cc3614e38afad63d-scss'))// 'Testing Demo'
+  demo1AfterCreatingPlaylist = element(by.className('_77ccab85bb794646035d39a339c41781-scss'))
   demo1 = element(by.className('_9ec767915488d36334c49b036bebcaea-scss'))
   moreOptions1 = element(by.className('a319647e0b4638c35cbe1cc56bbe8710-scss'))
   deleteOption = element(by.xpath("//nav[@class='react-contextmenu react-contextmenu--visible']/div[.='Delete']"))
