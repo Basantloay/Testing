@@ -3,7 +3,7 @@
 ******************This file contains E2E testscripts and HTTPS requests runned on Spotify Original******************** 
 (https://open.spotify.com/)
 
-Appium folder contains some E2E tests runned on MAYESTRO
+Appium folder contains some E2E tests runned on MAYESTRO (https://github.com/AhmedFawzi99/Android-Final)
 
 # Used Frameworks
 
