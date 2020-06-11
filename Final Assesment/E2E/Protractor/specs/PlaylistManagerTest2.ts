@@ -2,31 +2,32 @@
 /* eslint-disable no-undef */
 import { browser, element, by, protractor, Browser } from 'protractor'
 import { Playlist } from '../pages/Playlist'
-// import { log4jsconf } from '../log4jsconf'
+
 // eslint-disable-next-line no-undef
-describe('PlayLists creating and Deleting tests. \n', function () {
-  const playlist1 = new Playlist()
+describe('Adding and Deleting Songs from Playlist . \n', function () {
+  const playlist2 = new Playlist()
 
   beforeEach(function () {
     (global as any).isAngularSite(false)
   })
 
-  it('login test  ', async function () {
+  it('Adding song and album to Playlist Demo1.', async function () {
     browser.get('https://open.spotify.com/')
+    browser.sleep(500)
+    playlist2.firstAlbum.click()
     browser.sleep(50)
-    playlist1.clickLogin()
+    playlist2.moreOptions1.click()
+    browser.sleep(100)
+    // playlist2.firstSong.click()
+    /*browser.sleep(50)
+    playlist2.songOptions.click()// it'syou
+     browser.sleep(200)*/
+    playlist2.addToPlaylist.click()
     browser.sleep(50)
-    playlist1.UsernameTextBox.sendKeys(playlist1.User1Mail)
-    playlist1.PasswordTextBox.sendKeys(playlist1.User1Password)
-    // playlist1.clickRemember()
-    playlist1.clickLog()
-    browser.sleep(20)
-    playlist1.clickonUserIcon()
-    browser.sleep(20)
-    expect<any>(await playlist1.userIcon.getAttribute('title')).toContain('Testing Demo')
+    playlist2.addPlaylistIcon.click()
   })
 
-  it('Create First Playlist from Your Library ', async function () {
+ /* it('Create First Playlist from Your Library ', async function () {
     playlist1.clickYourLibrary()
     browser.sleep(100)
     expect<any>(await playlist1.Logo.getText()).toContain('Create your first playlist')
@@ -41,7 +42,7 @@ describe('PlayLists creating and Deleting tests. \n', function () {
     playlist1.backBtn.click()
     playlist1.backBtn.click()
   })
-
+/*
   it('Delete playlist from your Library ', async function () {
     for (let index = 0; index < 1; index++) { // can be repeated to delete many playlists
       playlist1.clickYourLibrary()
@@ -55,12 +56,10 @@ describe('PlayLists creating and Deleting tests. \n', function () {
       playlist1.deleteBtn.click()
       playlist1.backBtn.click()
       browser.sleep(100)
-      playlist1.homeBtn.click()
     }
   })
   // shouldn't create 2 playlist of same name
   it('Create Demo1 Playlist from Create playlist in Home ', async function () {
-    // browser.refresh()
     let flag : boolean = false
     for (let index = 0; index < 2; index++) {
       playlist1.createPlaylistHomeBtn.click()
@@ -69,7 +68,7 @@ describe('PlayLists creating and Deleting tests. \n', function () {
       playlist1.playlistNameTextBox.sendKeys('Demo1')
       playlist1.clickCreate()
       browser.sleep(200)
-      // expect<any>(await playlist1.Logo.getText()).toContain('Demo1')
+      expect<any>(await playlist1.Logo.getText()).toContain('Demo1')
       playlist1.backBtn.click()
       index === 1 ? flag = true : flag = false
     }
@@ -88,5 +87,5 @@ describe('PlayLists creating and Deleting tests. \n', function () {
       playlist1.backBtn.click()
       browser.sleep(100)
     }
-  })
+  })*/
 })

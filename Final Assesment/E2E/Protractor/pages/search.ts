@@ -1,20 +1,14 @@
 import { browser, element, by } from 'protractor'
 
-export class Playlist {
-  User1Mail : string = 'testinge2e20@gmail.com'
-  User1Password : string = '123456E2e'
-  User2Mail : string = 'testinge2e220@gmail.com'
-  User2Password : string = 'E2E123456'
-  loginBtn = element(by.className('_2221af4e93029bedeab751d04fab4b8b-scss _1edf52628d509e6baded2387f6267588-scss'))
-  UsernameTextBox = element(by.id('login-username'))
-  PasswordTextBox = element(by.id('login-password'))
-  rememberMeBtn = element(by.className('control-indicator'))
-  logBtn = element(by.className('btn btn-block btn-green ng-binding'))
+export class Search {
+  searchBtn = element(by.xpath("//a[.='Search']"))
+  searchBar = element(by.className('_2f8ed265fb69fb70c0c9afef329ae0b6-scss'))
+  searchSong = element(by.className('f79dd23c27c3352da3ac3ba62d78f8ea-scss'))
   yourLibraryBtn = element(by.className('icon collection-icon'))
   createPlaylistHomeBtn = element(by.className('fcdf941c8ffa7d0878af0a4f04aa05bb-scss'))
   LikedSongBtn = element(by.className('ce8ac4aabb35a48dc93a67cf4fedd99c-scss'))
   Logo = element(by.tagName('h1')) // 'Create your first playlist'
-  Logo2 = element(by.xpath("//h1[@class='_587844af67ca3c14dbf7deb3d5e64f69-scss d437f883c49a54bba1849d160344bcec-scss dc1cc34e88857bd0de4d7a4dc3c528a5-scss']")) //create new playlist
+  Logo2 = element(by.xpath("//h1[@class='_587844af67ca3c14dbf7deb3d5e64f69-scss d437f883c49a54bba1849d160344bcec-scss dc1cc34e88857bd0de4d7a4dc3c528a5-scss']")) // create new playlist
   createPlaylistLibrary = element(by.className('_2221af4e93029bedeab751d04fab4b8b-scss _1edf52628d509e6baded2387f6267588-scss _4a19a959428c34075eef50bd44ab468f-scss'))
   playlistNameTextBox = element(by.className('inputBox-input'))
   cancelBtn = element(by.css('._56a12d0978529b654affa11ca9390bd7-scss'))
@@ -40,6 +34,10 @@ export class Playlist {
   chooseDemo1fromSideBar = element(by.className('RootlistItemPlaylist__text-wrapper'))
   songOptions = element(by.className('spoticon-ellipsis-16'))
   removeSong = element(by.xpath("//div[.='Remove from this Playlist']"))
+  clicksearchBtn () {
+    this.searchBtn.click()
+  }
+
   clickonUserIcon () {
     this.userIcon.click()
   }
