@@ -43,7 +43,7 @@ export class Playlist {
   albumOptions = element(by.buttonText('More'))
   albumAdd = element(by.xpath('//nav[2]'))
   firstTrack = element(by.className("It's You"))
-  likeSong= element(by.Xpath("//footer[@class='now-playing-bar-container']//button[@class='control-button spoticon-heart-16']"))
+  likeSong= element(by.xpath("//footer[@class='now-playing-bar-container']//button[@class='control-button spoticon-heart-16']"))
   trackOptions= element(by.xpath("//section[@class='tracklist-container tracklist-container--rendering-bug-hack-2019-07-08']/ol[@class='tracklist']/div[1]//div[@class='spoticon-ellipsis-16']"))
   songAfterRemoved= element(by.className('tracklist-name ellipsis-one-line'))
   likedSong= element(by.className('tracklist-name ellipsis-one-line'))
