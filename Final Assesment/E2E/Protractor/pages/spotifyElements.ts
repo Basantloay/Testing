@@ -14,6 +14,11 @@ export class newPage{
     fbPassword = '123456e2e'
     changedEmail = 'e2etest@gmail.com'
 
+    wordToPass : String = ''
+    changethepassword(s: String){
+       this.wordToPass = s;
+    }
+
     facebookBtn = element(by.xpath("//a[.='Continue with Facebook']"))
     fbemail = element(by.xpath("//input[@id='email']"))
     fbpassword = element(by.xpath("//input[@id='pass']"))
@@ -42,5 +47,23 @@ export class newPage{
     repeatNewPassword = element(by.xpath("//input[@id='change_password_check_password']"))
     setNewPasswordBtn = element(by.xpath("//button[@id='change_password_submit']"))
     updated = element(by.xpath("//div[@class='alert alert-success']"))
+
+    privacySettingsBtn = element(by.css('div:nth-of-type(13)>div:nth-of-type(6)'))
+    recoverPlaylistsBtn = element(by.xpath('//*[@id="submenu-item-recover-playlists"]'))
+    recieptsBtn = element(by.xpath('//*[@id="submenu-item-receipts"]'))
+    appsBtn = element(by.xpath('//*[@id="submenu-item-apps"]'))
+    redeemBtn = element(by.xpath('//*[@id="submenu-item-redeem"]'))
+    
+    signOutEverywhere = element(by.xpath("//a[.='Sign out everywhere']"))
+
+    signUpEmail = element(by.xpath("//input[@id='email']"))
+    signUpConfirmEmail = element(by.xpath("//input[@id='confirm']"))
+    signUpCreatePassword = element(by.xpath("//input[@id='password']"))
+    signUpDisplayName = element(by.xpath("//input[@id='displayname']"))
+    signUpBirthDay = element(by.xpath("//input[@id='day']"))
+    signUpBirthYear = element(by.xpath("//input[@id='year']"))
+    signUpGender = element(by.xpath("//label[2]/span[@class='Indicator-sc-16vj7o8-0 dDbCKU']"))
+    signUpNotRobot = element(by.xpath("//div[@class='recaptcha-checkbox-border']"))
+    signUpBtn = element(by.xpath("//button[@class='Button-oyfj48-0 eEPJyH SignupButton___StyledButtonPrimary-cjcq5h-1 deUbNh']"))
     
 }
