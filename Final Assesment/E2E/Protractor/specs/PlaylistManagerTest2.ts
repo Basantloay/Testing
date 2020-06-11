@@ -47,4 +47,20 @@ describe('Adding and Deleting Songs from Playlist . \n', function () {
     expect<any>(await playlist2.songAfterRemoved.getText()).not.toContain("It's You")
     browser.sleep(100)
   })
+  it('Delete playlist from your Library ', async function () {
+    for (let index = 0; index < 1; index++) { // can be repeated to delete many playlists
+      playlist2.clickYourLibrary()
+      browser.sleep(100)
+      playlist2.demo1.click()
+      browser.sleep(500)
+      playlist2.moreOptions1.click()
+      browser.sleep(700)
+      playlist2.deleteOption.click()
+      expect<any>(await playlist2.deleteLogo.getText()).toContain('Do you really want to delete this playlist?')
+      playlist2.deleteBtn.click()
+      playlist2.backBtn.click()
+      browser.sleep(100)
+      playlist2.homeBtn.click()
+    }
+  })
 })
