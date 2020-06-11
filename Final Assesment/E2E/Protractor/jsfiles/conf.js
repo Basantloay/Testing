@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // To run this, first transpile it to javascript with `npm run tsc`,
 // then run `protractor conf.js`.
 // eslint-disable-next-line no-unused-vars
-const protractor_1 = require("protractor");
+const protractor_2 = require("protractor");
 // import { SpecReporter } from 'jasmine-spec-reporter'
 exports.config = {
     framework: 'jasmine',
@@ -17,7 +17,7 @@ exports.config = {
     noGlobals: true,
     onPrepare: () => {
         global.isAngularSite = function (temp) {
-            protractor_1.browser.ignoreSynchronization = !temp;
+            protractor_2.browser.ignoreSynchronization = !temp;
         };
         // jasmine.getEnv().addReporter((new SpecReporter({ spec: { displayStacktrace: true } })))
         var AllureReporter = require('jasmine-allure-reporter');
@@ -26,8 +26,8 @@ exports.config = {
             resultsDir: 'allure-results'
         }));
         // browser.manage().window().setSize(1366, 768)
-        protractor_1.browser.manage().timeouts().implicitlyWait(10000);
-        protractor_1.browser.waitForAngularEnabled(false);
+        protractor_2.browser.manage().timeouts().implicitlyWait(10000);
+        protractor_2.browser.waitForAngularEnabled(false);
         // browser.ignoreSynchronization = true
     }
 };

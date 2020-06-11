@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-const protractor_1 = require("protractor");
+const protractor_2 = require("protractor");
 const Playlist_1 = require("../pages/Playlist");
 // eslint-disable-next-line no-undef
 describe('Adding and Deleting Songs from Playlist . \n', function () {
@@ -21,18 +21,18 @@ describe('Adding and Deleting Songs from Playlist . \n', function () {
     });
     it('Adding song and album to Playlist Demo1.', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.get('https://open.spotify.com/');
-            protractor_1.browser.sleep(500);
+            protractor_2.browser.get('https://open.spotify.com/');
+            protractor_2.browser.sleep(500);
             playlist2.firstAlbum.click();
-            protractor_1.browser.sleep(50);
+            protractor_2.browser.sleep(50);
             playlist2.moreOptions1.click();
-            protractor_1.browser.sleep(100);
+            protractor_2.browser.sleep(100);
             // playlist2.firstSong.click()
             /*browser.sleep(50)
             playlist2.songOptions.click()// it'syou
              browser.sleep(200)*/
             playlist2.addToPlaylist.click();
-            protractor_1.browser.sleep(50);
+            protractor_2.browser.sleep(50);
             playlist2.addPlaylistIcon.click();
         });
     });

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const protractor_1 = require("protractor");
+const protractor_2 = require("protractor");
 /**
  * Represents POM of spotify
  * this class is to keep needed elements in spotify pages
@@ -13,30 +13,30 @@ class newPage {
         this.fbEmail = 'e2etesting00@gmail.com';
         this.fbPassword = '123456e2e';
         this.changedEmail = 'e2etest@gmail.com';
-        this.facebookBtn = protractor_1.element(protractor_1.by.xpath("//a[.='Continue with Facebook']"));
-        this.fbemail = protractor_1.element(protractor_1.by.xpath("//input[@id='email']"));
-        this.fbpassword = protractor_1.element(protractor_1.by.xpath("//input[@id='pass']"));
-        this.fbLogIn = protractor_1.element(protractor_1.by.xpath("//button[@id='loginbutton']"));
-        this.LogOut = protractor_1.element(protractor_1.by.xpath('//*[@id="app"]/body/div/div[2]/div/div/div[5]/div/button'));
-        this.LogInBtn = protractor_1.element(protractor_1.by.xpath("//button[@id='login-button']"));
-        this.LogIn = protractor_1.element(protractor_1.by.xpath("//a[@id='login-btn-link']"));
-        this.email = protractor_1.element(protractor_1.by.xpath("//input[@id='login-username']"));
-        this.password = protractor_1.element(protractor_1.by.xpath("//input[@id='login-password']"));
-        this.editProfileBtn = protractor_1.element(protractor_1.by.xpath("//a[.='Edit profile']"));
-        this.saveProfileBtn = protractor_1.element(protractor_1.by.xpath("//button[@id='profile_save_profile']"));
-        this.editEmail = protractor_1.element(protractor_1.by.xpath("//input[@id='profile_email']"));
-        this.confirmPassword = protractor_1.element(protractor_1.by.xpath("//input[@id='profile_confirmPassword']"));
-        this.profileEmail = protractor_1.element(protractor_1.by.xpath('//*[@id="__next"]/div/div/div[2]/div[2]/div[2]/div/article[1]/section/table/tbody/tr[2]/td[2]/p'));
-        this.profileSaved = protractor_1.element(protractor_1.by.xpath("//p[.='Profile saved']"));
-        this.newMusicEmail_notific = protractor_1.element(protractor_1.by.xpath('//table[2]//tr[2]/td[2]//label[1]'));
-        this.newMusicPush_notific = protractor_1.element(protractor_1.by.xpath('//table[2]//tr[2]/td[3]//label[1]'));
-        this.saveNotificationSettingsBtn = protractor_1.element(protractor_1.by.xpath("//button[@id='notifications_save']"));
-        this.NotificationsSaved = protractor_1.element(protractor_1.by.xpath("//li[.='Notifications saved']"));
-        this.currentPassword = protractor_1.element(protractor_1.by.xpath("//input[@id='change_password_validatePassword']"));
-        this.newPassword = protractor_1.element(protractor_1.by.xpath("//input[@id='change_password_new_password']"));
-        this.repeatNewPassword = protractor_1.element(protractor_1.by.xpath("//input[@id='change_password_check_password']"));
-        this.setNewPasswordBtn = protractor_1.element(protractor_1.by.xpath("//button[@id='change_password_submit']"));
-        this.updated = protractor_1.element(protractor_1.by.xpath("//div[@class='alert alert-success']"));
+        this.facebookBtn = protractor_2.element(protractor_2.by.xpath("//a[.='Continue with Facebook']"));
+        this.fbemail = protractor_2.element(protractor_2.by.xpath("//input[@id='email']"));
+        this.fbpassword = protractor_2.element(protractor_2.by.xpath("//input[@id='pass']"));
+        this.fbLogIn = protractor_2.element(protractor_2.by.xpath("//button[@id='loginbutton']"));
+        this.LogOut = protractor_2.element(protractor_2.by.xpath('//*[@id="app"]/body/div/div[2]/div/div/div[5]/div/button'));
+        this.LogInBtn = protractor_2.element(protractor_2.by.xpath("//button[@id='login-button']"));
+        this.LogIn = protractor_2.element(protractor_2.by.xpath("//a[@id='login-btn-link']"));
+        this.email = protractor_2.element(protractor_2.by.xpath("//input[@id='login-username']"));
+        this.password = protractor_2.element(protractor_2.by.xpath("//input[@id='login-password']"));
+        this.editProfileBtn = protractor_2.element(protractor_2.by.xpath("//a[.='Edit profile']"));
+        this.saveProfileBtn = protractor_2.element(protractor_2.by.xpath("//button[@id='profile_save_profile']"));
+        this.editEmail = protractor_2.element(protractor_2.by.xpath("//input[@id='profile_email']"));
+        this.confirmPassword = protractor_2.element(protractor_2.by.xpath("//input[@id='profile_confirmPassword']"));
+        this.profileEmail = protractor_2.element(protractor_2.by.xpath('//*[@id="__next"]/div/div/div[2]/div[2]/div[2]/div/article[1]/section/table/tbody/tr[2]/td[2]/p'));
+        this.profileSaved = protractor_2.element(protractor_2.by.xpath("//p[.='Profile saved']"));
+        this.newMusicEmail_notific = protractor_2.element(protractor_2.by.xpath('//table[2]//tr[2]/td[2]//label[1]'));
+        this.newMusicPush_notific = protractor_2.element(protractor_2.by.xpath('//table[2]//tr[2]/td[3]//label[1]'));
+        this.saveNotificationSettingsBtn = protractor_2.element(protractor_2.by.xpath("//button[@id='notifications_save']"));
+        this.NotificationsSaved = protractor_2.element(protractor_2.by.xpath("//li[.='Notifications saved']"));
+        this.currentPassword = protractor_2.element(protractor_2.by.xpath("//input[@id='change_password_validatePassword']"));
+        this.newPassword = protractor_2.element(protractor_2.by.xpath("//input[@id='change_password_new_password']"));
+        this.repeatNewPassword = protractor_2.element(protractor_2.by.xpath("//input[@id='change_password_check_password']"));
+        this.setNewPasswordBtn = protractor_2.element(protractor_2.by.xpath("//button[@id='change_password_submit']"));
+        this.updated = protractor_2.element(protractor_2.by.xpath("//div[@class='alert alert-success']"));
     }
 }
 exports.newPage = newPage;

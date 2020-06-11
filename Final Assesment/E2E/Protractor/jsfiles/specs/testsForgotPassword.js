@@ -9,14 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const protractor_1 = require("protractor");
+const protractor_2 = require("protractor");
 const pageForgotPassword_1 = require("../pages/pageForgotPassword");
 const pageLogin_1 = require("../pages/pageLogin");
 let newForgotPassword = new pageForgotPassword_1.pageForgotPassword();
 let newlogin = new pageLogin_1.pageLogin();
 describe('Testing forgot password', function () {
     beforeAll(function () {
-        protractor_1.browser.get('http://localhost:4200/account.mayestro/forget-password');
+        protractor_2.browser.get('http://localhost:4200/account.mayestro/forget-password');
     });
     it('send btn disabled untinl', function () {
         return __awaiter(this, void 0, void 0, function* () {
@@ -27,11 +27,11 @@ describe('Testing forgot password', function () {
     });
     it('no username', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.refresh();
+            protractor_2.browser.refresh();
             newForgotPassword.emailOrUsername.click();
-            newForgotPassword.emailOrUsername.sendKeys(protractor_1.protractor.Key.TAB).then(function () {
+            newForgotPassword.emailOrUsername.sendKeys(protractor_2.protractor.Key.TAB).then(function () {
                 return __awaiter(this, void 0, void 0, function* () {
-                    protractor_1.browser.sleep(1500);
+                    protractor_2.browser.sleep(1500);
                     expect(yield newForgotPassword.errorEmail.getText()).toContain('Please enter your email.');
                 });
             });
@@ -49,16 +49,16 @@ describe('Testing forgot password', function () {
     });
     it('invalid email error disappears and have another error', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.refresh();
+            protractor_2.browser.refresh();
             newForgotPassword.emailOrUsername.sendKeys('ahmedd');
             newForgotPassword.sendBtn.click().then(function () {
                 return __awaiter(this, void 0, void 0, function* () {
                     expect(yield newForgotPassword.errorDoesNotExist.getText()).toContain('The email address you entered is not linked to a Spotify account. You can either try another email address, or log in through Facebook - if your account is connected. match.');
                 });
             });
-            newForgotPassword.emailOrUsername.sendKeys(protractor_1.protractor.Key.CONTROL, 'a');
-            newForgotPassword.emailOrUsername.sendKeys(protractor_1.protractor.Key.DELETE);
-            newForgotPassword.emailOrUsername.sendKeys(protractor_1.protractor.Key.TAB).then(function () {
+            newForgotPassword.emailOrUsername.sendKeys(protractor_2.protractor.Key.CONTROL, 'a');
+            newForgotPassword.emailOrUsername.sendKeys(protractor_2.protractor.Key.DELETE);
+            newForgotPassword.emailOrUsername.sendKeys(protractor_2.protractor.Key.TAB).then(function () {
                 return __awaiter(this, void 0, void 0, function* () {
                     expect(yield newForgotPassword.errorEmail2.getText()).toContain('Please enter your email.');
                     expect(yield newForgotPassword.errorDoesNotExist.isDisplayed()).toBe(false);
@@ -67,30 +67,30 @@ describe('Testing forgot password', function () {
         });
     });
     it('open spotify support', function () {
-        protractor_1.browser.refresh();
-        protractor_1.browser.ignoreSynchronization = true;
+        protractor_2.browser.refresh();
+        protractor_2.browser.ignoreSynchronization = true;
         newForgotPassword.spotifySupport.click();
-        let windowHandles = protractor_1.browser.getAllWindowHandles();
+        let windowHandles = protractor_2.browser.getAllWindowHandles();
         let parentHandle, childHandle;
         windowHandles.then(function (handles) {
             parentHandle = handles[0];
             childHandle = handles[1];
-            protractor_1.browser.switchTo().window(childHandle).then(function () {
-                protractor_1.browser.close();
+            protractor_2.browser.switchTo().window(childHandle).then(function () {
+                protractor_2.browser.close();
             });
-            protractor_1.browser.switchTo().window(parentHandle);
+            protractor_2.browser.switchTo().window(parentHandle);
         });
     });
     it('valid till reset', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.refresh();
+            protractor_2.browser.refresh();
             newForgotPassword.emailOrUsername.sendKeys('ahmed@gmail.com');
             newForgotPassword.sendBtn.click().then(function () {
                 return __awaiter(this, void 0, void 0, function* () {
                     newForgotPassword.resetUsingMockServer.click().then(function () {
                         return __awaiter(this, void 0, void 0, function* () {
-                            protractor_1.browser.sleep(2000);
-                            expect(yield protractor_1.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/reset-password/');
+                            protractor_2.browser.sleep(2000);
+                            expect(yield protractor_2.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/reset-password/');
                             expect(yield newForgotPassword.resetSendBtn.isEnabled()).toBe(false);
                         });
                     });
@@ -100,14 +100,14 @@ describe('Testing forgot password', function () {
     });
     it('no new password', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.navigate().to("http://localhost:4200/account.mayestro/forget-password");
+            protractor_2.browser.navigate().to("http://localhost:4200/account.mayestro/forget-password");
             newForgotPassword.emailOrUsername.sendKeys('ahmed@gmail.com');
             newForgotPassword.sendBtn.click().then(function () {
                 return __awaiter(this, void 0, void 0, function* () {
                     newForgotPassword.resetUsingMockServer.click().then(function () {
                         return __awaiter(this, void 0, void 0, function* () {
-                            protractor_1.browser.sleep(2000);
-                            expect(yield protractor_1.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/reset-password/');
+                            protractor_2.browser.sleep(2000);
+                            expect(yield protractor_2.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/reset-password/');
                         });
                     });
                 });
@@ -119,33 +119,33 @@ describe('Testing forgot password', function () {
     });
     it('password too short', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.navigate().to("http://localhost:4200/account.mayestro/forget-password");
+            protractor_2.browser.navigate().to("http://localhost:4200/account.mayestro/forget-password");
             newForgotPassword.emailOrUsername.sendKeys('ahmed@gmail.com');
             newForgotPassword.sendBtn.click().then(function () {
                 return __awaiter(this, void 0, void 0, function* () {
                     newForgotPassword.resetUsingMockServer.click().then(function () {
                         return __awaiter(this, void 0, void 0, function* () {
-                            protractor_1.browser.sleep(2000);
-                            expect(yield protractor_1.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/reset-password/');
+                            protractor_2.browser.sleep(2000);
+                            expect(yield protractor_2.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/reset-password/');
                         });
                     });
                 });
             });
             newForgotPassword.newPassword.sendKeys('123');
-            newForgotPassword.newPassword.sendKeys(protractor_1.protractor.Key.TAB);
+            newForgotPassword.newPassword.sendKeys(protractor_2.protractor.Key.TAB);
             expect(yield newForgotPassword.errorPasswordTooShort.getText()).toContain("Your password is too short.");
         });
     });
     it('confirm paassword too short', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.navigate().to("http://localhost:4200/account.mayestro/forget-password");
+            protractor_2.browser.navigate().to("http://localhost:4200/account.mayestro/forget-password");
             newForgotPassword.emailOrUsername.sendKeys('ahmed@gmail.com');
             newForgotPassword.sendBtn.click().then(function () {
                 return __awaiter(this, void 0, void 0, function* () {
                     newForgotPassword.resetUsingMockServer.click().then(function () {
                         return __awaiter(this, void 0, void 0, function* () {
-                            protractor_1.browser.sleep(2000);
-                            expect(yield protractor_1.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/reset-password/');
+                            protractor_2.browser.sleep(2000);
+                            expect(yield protractor_2.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/reset-password/');
                         });
                     });
                 });
@@ -157,14 +157,14 @@ describe('Testing forgot password', function () {
     });
     it('no confirm new password', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.navigate().to("http://localhost:4200/account.mayestro/forget-password");
+            protractor_2.browser.navigate().to("http://localhost:4200/account.mayestro/forget-password");
             newForgotPassword.emailOrUsername.sendKeys('ahmed@gmail.com');
             newForgotPassword.sendBtn.click().then(function () {
                 return __awaiter(this, void 0, void 0, function* () {
                     newForgotPassword.resetUsingMockServer.click().then(function () {
                         return __awaiter(this, void 0, void 0, function* () {
-                            protractor_1.browser.sleep(2000);
-                            expect(yield protractor_1.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/reset-password/');
+                            protractor_2.browser.sleep(2000);
+                            expect(yield protractor_2.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/reset-password/');
                         });
                     });
                 });
@@ -176,37 +176,37 @@ describe('Testing forgot password', function () {
     });
     it('password does not match.', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.navigate().to("http://localhost:4200/account.mayestro/forget-password");
+            protractor_2.browser.navigate().to("http://localhost:4200/account.mayestro/forget-password");
             newForgotPassword.emailOrUsername.sendKeys('ahmed@gmail.com');
             newForgotPassword.sendBtn.click().then(function () {
                 return __awaiter(this, void 0, void 0, function* () {
                     newForgotPassword.resetUsingMockServer.click().then(function () {
                         return __awaiter(this, void 0, void 0, function* () {
-                            protractor_1.browser.sleep(2000);
-                            expect(yield protractor_1.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/reset-password/');
+                            protractor_2.browser.sleep(2000);
+                            expect(yield protractor_2.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/reset-password/');
                         });
                     });
                 });
             });
             newForgotPassword.newPassword.sendKeys('12345678');
             newForgotPassword.confirmNewPassword.sendKeys('123456789');
-            newForgotPassword.confirmNewPassword.sendKeys(protractor_1.protractor.Key.TAB);
+            newForgotPassword.confirmNewPassword.sendKeys(protractor_2.protractor.Key.TAB);
             expect(yield newForgotPassword.errorDoesNotMatch.getText()).toContain("password doesn't match.");
         });
     });
     it('valid password change', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.navigate().to("http://localhost:4200/account.mayestro/login");
+            protractor_2.browser.navigate().to("http://localhost:4200/account.mayestro/login");
             newlogin.forgotPassword.click();
-            protractor_1.browser.sleep(2000);
-            protractor_1.browser.refresh();
+            protractor_2.browser.sleep(2000);
+            protractor_2.browser.refresh();
             newForgotPassword.emailOrUsername.sendKeys('ahmed@gmail.com');
             newForgotPassword.sendBtn.click().then(function () {
                 return __awaiter(this, void 0, void 0, function* () {
                     newForgotPassword.resetUsingMockServer.click().then(function () {
                         return __awaiter(this, void 0, void 0, function* () {
-                            protractor_1.browser.sleep(2000);
-                            expect(yield protractor_1.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/reset-password/');
+                            protractor_2.browser.sleep(2000);
+                            expect(yield protractor_2.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/reset-password/');
                         });
                     });
                 });
@@ -218,13 +218,13 @@ describe('Testing forgot password', function () {
             newForgotPassword.resetSendBtn.click();
             //check token
             // or in my case check if i can login
-            protractor_1.browser.navigate().back();
-            protractor_1.browser.navigate().back();
+            protractor_2.browser.navigate().back();
+            protractor_2.browser.navigate().back();
             newlogin.emailInput.sendKeys('ahmed@gmail.com');
             newlogin.passwordInput.sendKeys(newPassword);
             newlogin.loginBtn.click();
-            protractor_1.browser.sleep(4000);
-            expect(yield protractor_1.browser.getCurrentUrl()).toContain('http://localhost:4200/open.mayestro/overview');
+            protractor_2.browser.sleep(4000);
+            expect(yield protractor_2.browser.getCurrentUrl()).toContain('http://localhost:4200/open.mayestro/overview');
         });
     });
 });

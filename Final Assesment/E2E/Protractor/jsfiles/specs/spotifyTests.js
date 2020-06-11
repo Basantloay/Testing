@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const protractor_1 = require("protractor");
+const protractor_2 = require("protractor");
 const spotifyElements_1 = require("../pages/spotifyElements");
 const URLs_1 = require("../pages/URLs");
 class DocumentMe {
@@ -33,7 +33,7 @@ describe('Testing Spotify', function () {
     * getting executed before each test case
     */
     beforeAll(function () {
-        protractor_1.browser.get(URL.login);
+        protractor_2.browser.get(URL.login);
     });
     /**
      *this it function for invalid logging in with facebook - no password provided
@@ -43,10 +43,10 @@ describe('Testing Spotify', function () {
     it('Continue with facebook - Invalid login', function () {
         return __awaiter(this, void 0, void 0, function* () {
             user.facebookBtn.click();
-            let x = protractor_1.browser.getCurrentUrl();
+            let x = protractor_2.browser.getCurrentUrl();
             user.fbemail.sendKeys(user.username);
             user.fbLogIn.click();
-            expect(yield protractor_1.browser.getCurrentUrl()).toContain((yield x).toString());
+            expect(yield protractor_2.browser.getCurrentUrl()).toContain((yield x).toString());
         });
     });
     /**
@@ -56,13 +56,13 @@ describe('Testing Spotify', function () {
     */
     it('Continue with facebook - valid login', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.get(URL.login);
+            protractor_2.browser.get(URL.login);
             user.facebookBtn.click();
             user.fbemail.sendKeys(user.fbEmail);
             user.fbpassword.sendKeys(user.fbPassword);
             user.fbLogIn.click();
-            protractor_1.browser.sleep(1000);
-            expect(yield protractor_1.browser.getCurrentUrl()).toContain(URL.status);
+            protractor_2.browser.sleep(1000);
+            expect(yield protractor_2.browser.getCurrentUrl()).toContain(URL.status);
             user.LogOut.click();
         });
     });
@@ -74,26 +74,26 @@ describe('Testing Spotify', function () {
    */
     it('Edit profile - Valid', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.get(URL.login);
+            protractor_2.browser.get(URL.login);
             user.LogIn.click();
             user.email.sendKeys(user.accountEmail);
             user.password.sendKeys(user.accountPassword);
             user.LogInBtn.click();
-            protractor_1.browser.sleep(1500);
-            expect(yield protractor_1.browser.getCurrentUrl()).toContain(URL.status);
-            protractor_1.browser.get(URL.overview);
-            protractor_1.browser.sleep(1000);
+            protractor_2.browser.sleep(1500);
+            expect(yield protractor_2.browser.getCurrentUrl()).toContain(URL.status);
+            protractor_2.browser.get(URL.overview);
+            protractor_2.browser.sleep(1000);
             user.editProfileBtn.click();
             user.editEmail.clear();
             user.editEmail.sendKeys(user.changedEmail);
             user.confirmPassword.sendKeys(user.accountPassword);
             user.saveProfileBtn.click();
             expect(yield user.profileSaved.isPresent()).toBe(true);
-            protractor_1.browser.get(URL.overview);
+            protractor_2.browser.get(URL.overview);
             expect(yield user.profileEmail.getText()).toContain(user.changedEmail);
-            protractor_1.browser.sleep(1000);
-            protractor_1.browser.get(URL.profile);
-            protractor_1.browser.sleep(1000);
+            protractor_2.browser.sleep(1000);
+            protractor_2.browser.get(URL.profile);
+            protractor_2.browser.sleep(1000);
             user.editEmail.clear();
             user.editEmail.sendKeys(user.accountEmail);
             user.confirmPassword.sendKeys(user.accountPassword);
@@ -108,15 +108,15 @@ describe('Testing Spotify', function () {
    */
     it('Edit profile - Invalid', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.get(URL.overview);
-            protractor_1.browser.sleep(1000);
+            protractor_2.browser.get(URL.overview);
+            protractor_2.browser.sleep(1000);
             user.editProfileBtn.click();
             user.editEmail.clear();
             user.editEmail.sendKeys(user.changedEmail);
             user.saveProfileBtn.click();
             expect(yield user.profileSaved.isPresent()).toBe(false);
-            protractor_1.browser.sleep(1000);
-            protractor_1.browser.get(URL.overview);
+            protractor_2.browser.sleep(1000);
+            protractor_2.browser.get(URL.overview);
             expect(yield user.profileEmail.getText()).not.toContain(user.changedEmail);
         });
     });
@@ -127,11 +127,11 @@ describe('Testing Spotify', function () {
     */
     it('Notification settings - Valid', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.get(URL.notificationettings);
+            protractor_2.browser.get(URL.notificationettings);
             user.newMusicEmail_notific.click();
             user.newMusicPush_notific.click();
             user.saveNotificationSettingsBtn.click();
-            protractor_1.browser.sleep(1000);
+            protractor_2.browser.sleep(1000);
             expect(yield user.newMusicEmail_notific.isSelected()).toBe(false);
             expect(yield user.newMusicPush_notific.isSelected()).toBe(false);
             expect(yield user.NotificationsSaved.isPresent()).toBe(true);
@@ -148,7 +148,7 @@ describe('Testing Spotify', function () {
     */
     it('Change Password - Invalid', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.get(URL.changePassword);
+            protractor_2.browser.get(URL.changePassword);
             user.currentPassword.sendKeys(user.accountPassword);
             user.setNewPasswordBtn.click();
             expect(yield user.updated.isPresent()).toBe(false);

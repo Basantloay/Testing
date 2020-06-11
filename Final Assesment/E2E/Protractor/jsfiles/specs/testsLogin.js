@@ -9,48 +9,48 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const protractor_1 = require("protractor");
+const protractor_2 = require("protractor");
 const pageLogin_1 = require("../pages/pageLogin");
 let newlogin = new pageLogin_1.pageLogin();
 describe('Testing login', function () {
     beforeAll(function () {
-        protractor_1.browser.get('http://localhost:4200/account.mayestro/login');
+        protractor_2.browser.get('http://localhost:4200/account.mayestro/login');
     });
     it('responsiveness', function () {
         for (var i = 0; i <= 4; i++) {
             switch (i) {
                 case 0:
-                    protractor_1.browser.manage().window().setSize(320, 480);
-                    protractor_1.browser.sleep(1500);
+                    protractor_2.browser.manage().window().setSize(320, 480);
+                    protractor_2.browser.sleep(1500);
                     break;
                 case 1:
-                    protractor_1.browser.manage().window().setSize(600, 800);
-                    protractor_1.browser.sleep(1500);
+                    protractor_2.browser.manage().window().setSize(600, 800);
+                    protractor_2.browser.sleep(1500);
                     break;
                 case 2:
-                    protractor_1.browser.manage().window().setSize(768, 1024);
-                    protractor_1.browser.sleep(1500);
+                    protractor_2.browser.manage().window().setSize(768, 1024);
+                    protractor_2.browser.sleep(1500);
                     break;
                 case 3:
-                    protractor_1.browser.manage().window().setSize(1080, 1920);
-                    protractor_1.browser.sleep(1500);
+                    protractor_2.browser.manage().window().setSize(1080, 1920);
+                    protractor_2.browser.sleep(1500);
                     break;
                 case 4:
-                    protractor_1.browser.manage().window().setSize(1200, 1800);
+                    protractor_2.browser.manage().window().setSize(1200, 1800);
                     return;
             }
         }
     });
     it('cursor on email by default FAIL', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.sleep(2000);
-            let currentElement = protractor_1.browser.driver.switchTo().activeElement();
+            protractor_2.browser.sleep(2000);
+            let currentElement = protractor_2.browser.driver.switchTo().activeElement();
             expect(currentElement.getId()).toEqual(newlogin.emailInput.getId());
         });
     });
     it('login disabled until..', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.refresh();
+            protractor_2.browser.refresh();
             expect(yield newlogin.loginBtn.isEnabled()).toBe(false);
             newlogin.emailInput.sendKeys('a');
             newlogin.passwordInput.sendKeys('11111111');
@@ -59,13 +59,13 @@ describe('Testing login', function () {
     });
     it('valid login', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.refresh();
+            protractor_2.browser.refresh();
             newlogin.emailInput.sendKeys('ahmed@gmail.com');
             newlogin.passwordInput.sendKeys('12345678');
             newlogin.loginBtn.click();
-            protractor_1.browser.sleep(4000);
-            expect(yield protractor_1.browser.getCurrentUrl()).toContain('http://localhost:4200/open.mayestro/overview');
-            protractor_1.browser.navigate().back();
+            protractor_2.browser.sleep(4000);
+            expect(yield protractor_2.browser.getCurrentUrl()).toContain('http://localhost:4200/open.mayestro/overview');
+            protractor_2.browser.navigate().back();
         });
     });
     it('forbidden characters FAIL', function () {
@@ -77,7 +77,7 @@ describe('Testing login', function () {
     });
     it('should have error message for incorrect username', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.refresh();
+            protractor_2.browser.refresh();
             newlogin.emailInput.sendKeys('heloo');
             newlogin.passwordInput.sendKeys('12345678');
             newlogin.loginBtn.click();
@@ -86,7 +86,7 @@ describe('Testing login', function () {
     });
     it('should have error message for incorrect password', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.refresh();
+            protractor_2.browser.refresh();
             newlogin.emailInput.sendKeys('ahmed@gmail.com');
             newlogin.passwordInput.sendKeys('1234567899');
             newlogin.loginBtn.click();
@@ -95,76 +95,76 @@ describe('Testing login', function () {
     });
     it('Testing can not copy password', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.refresh();
+            protractor_2.browser.refresh();
             newlogin.passwordInput.sendKeys('123456789').then(function () {
                 //newlogin.passwordInput.sendKeys(protractor.Key.CONTROL, 'a');
-                newlogin.passwordInput.sendKeys(protractor_1.protractor.Key.CONTROL, 'c');
-                newlogin.emailInput.sendKeys(protractor_1.protractor.Key.CONTROL, 'v');
+                newlogin.passwordInput.sendKeys(protractor_2.protractor.Key.CONTROL, 'c');
+                newlogin.emailInput.sendKeys(protractor_2.protractor.Key.CONTROL, 'v');
             });
             expect(newlogin.emailInput.getText()).not.toContain(newlogin.passwordInput.getText());
         });
     });
     it('Testing tab key', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.refresh();
-            newlogin.emailInput.sendKeys(protractor_1.protractor.Key.TAB).then(function () {
-                let currentElement = protractor_1.browser.driver.switchTo().activeElement();
+            protractor_2.browser.refresh();
+            newlogin.emailInput.sendKeys(protractor_2.protractor.Key.TAB).then(function () {
+                let currentElement = protractor_2.browser.driver.switchTo().activeElement();
                 expect(currentElement.getId()).toEqual(newlogin.passwordInput.getId());
             });
         });
     });
     it('no email', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.refresh();
+            protractor_2.browser.refresh();
             newlogin.emailInput.click();
             newlogin.passwordInput.click();
             expect(yield newlogin.errorEmail.getText()).toContain('Please enter your email.');
-            protractor_1.browser.sleep(1500);
+            protractor_2.browser.sleep(1500);
         });
     });
     it('no password', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.refresh();
+            protractor_2.browser.refresh();
             newlogin.passwordInput.click();
             newlogin.emailInput.click();
             expect(yield newlogin.errorPassword.getText()).toContain('Enter a password to continue.');
-            protractor_1.browser.sleep(1500);
+            protractor_2.browser.sleep(1500);
         });
     });
     it('go to sign up', function () {
         return __awaiter(this, void 0, void 0, function* () {
-            protractor_1.browser.refresh();
+            protractor_2.browser.refresh();
             newlogin.signUp.click();
-            protractor_1.browser.sleep(2000);
-            expect(yield protractor_1.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/signup');
-            protractor_1.browser.navigate().back();
+            protractor_2.browser.sleep(2000);
+            expect(yield protractor_2.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/signup');
+            protractor_2.browser.navigate().back();
         });
     });
     it('go to forget password', function () {
         return __awaiter(this, void 0, void 0, function* () {
             newlogin.forgotPassword.click();
-            protractor_1.browser.sleep(2000);
-            expect(yield protractor_1.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/forget-password');
-            protractor_1.browser.navigate().back();
+            protractor_2.browser.sleep(2000);
+            expect(yield protractor_2.browser.getCurrentUrl()).toContain('http://localhost:4200/account.mayestro/forget-password');
+            protractor_2.browser.navigate().back();
         });
     });
     it('terms & conditions and privacy policy', function () {
-        protractor_1.browser.ignoreSynchronization = true;
+        protractor_2.browser.ignoreSynchronization = true;
         newlogin.termsAndConditions.click();
         newlogin.privacyPolicy.click();
-        let windowHandles = protractor_1.browser.getAllWindowHandles();
+        let windowHandles = protractor_2.browser.getAllWindowHandles();
         let parentHandle, childHandle, child2Handle;
         windowHandles.then(function (handles) {
             parentHandle = handles[0];
             childHandle = handles[1];
             child2Handle = handles[2];
-            protractor_1.browser.switchTo().window(childHandle).then(function () {
-                protractor_1.browser.close();
+            protractor_2.browser.switchTo().window(childHandle).then(function () {
+                protractor_2.browser.close();
             });
-            protractor_1.browser.switchTo().window(child2Handle).then(function () {
-                protractor_1.browser.close();
+            protractor_2.browser.switchTo().window(child2Handle).then(function () {
+                protractor_2.browser.close();
             });
-            protractor_1.browser.switchTo().window(parentHandle).then(function () {
+            protractor_2.browser.switchTo().window(parentHandle).then(function () {
                 console.log('Returning to main window...');
             });
         });
