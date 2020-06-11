@@ -1,4 +1,4 @@
-import { browser } from 'protractor'
+import { browser, protractor, element, by } from 'protractor'
 
 import { newPage } from '../pages/spotifyElements';
 
@@ -16,8 +16,10 @@ let URL = new URLs();
  * Test 2: Valid login with facebook accout
  * Test 3: valid profile editing
  * Test 4: Invalid profile editing
- * Test 5: Valid changing notification settings
- * Test 6: Invalid password change
+ * Test 5: Buttons navigation
+ * Test 6: Valid changing notification settings
+ * Test 7: Invalid password change
+ * Test 8: Valid password change
  * 
  */
 
@@ -129,6 +131,38 @@ describe('Testing Spotify', function () {
 
     })
 
+    /**
+   *this it function for testing buttons navigation 
+   *@param expectation — each button nagigates to a differnt url
+   *@param assertion — navigation to correct url
+   */
+  it('Buttons Navigation', async function(){
+
+        browser.get(URL.overview) 
+
+        user.privacySettingsBtn.click();
+        expect(await browser.getCurrentUrl()).toContain(URL.privacySettings)
+        browser.navigate().back()
+
+        user.recoverPlaylistsBtn.click();
+        expect(await browser.getCurrentUrl()).toContain(URL.recoverPlaylists)
+        browser.navigate().back()
+        
+        user.recieptsBtn.click();
+        expect(await browser.getCurrentUrl()).toContain(URL.reciepts)
+        browser.navigate().back()
+        
+        user.appsBtn.click();
+        expect(await browser.getCurrentUrl()).toContain(URL.apps)
+        browser.navigate().back()
+        
+        user.redeemBtn.click();
+        expect(await browser.getCurrentUrl()).toContain(URL.redeem)
+        browser.navigate().back()
+
+    })
+
+
    /**
    *this it function for valid notification settings
    *@param expectation — setting check box is unchecked after click
@@ -155,7 +189,7 @@ describe('Testing Spotify', function () {
 
 
    /**
-   *this it function for invalid password change
+   *this it function for invalid password change sign up with new email and change the password
    *@param expectation — password is not changed
    *@param assertion — label for updated password is not present
    */
@@ -165,29 +199,56 @@ describe('Testing Spotify', function () {
         user.currentPassword.sendKeys(user.accountPassword)
         user.setNewPasswordBtn.click();
         expect(await user.updated.isPresent()).toBe(false)
+        browser.get(URL.overview)
+        browser.sleep(1000)
+        user.signOutEverywhere.click();
     
     })
     
     
-    // it('Change Password - Valid', async function(){
+    it('Change Password - Valid', async function(){
 
-    //     var length = 8,
-    //     charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-    //     retVal = "";
-    //     for (var i = 0, n = charset.length; i < length; ++i) {
-    //     retVal += charset.charAt(Math.floor(Math.random() * n));
-    //     }
+        var length = 8,
+        charSetEmail = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        charSetPassword = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retValPassword = "",
+        retValNewPassword = "",
+        retValEmail = "";
+        for (var i = 0, n = charSetEmail.length; i < length; ++i) {
+            retValEmail += charSetEmail.charAt(Math.floor(Math.random() * n));
+        }
+        for (var i = 0, n = charSetPassword.length; i < length; ++i) {
+            retValPassword += charSetPassword.charAt(Math.floor(Math.random() * n));
+        }
+        for (var i = 0, n = charSetPassword.length; i < length; ++i) {
+            retValNewPassword += charSetPassword.charAt(Math.floor(Math.random() * n));
+        }
+        let xEmail = retValEmail + '@gmail.com'
+        let xName = retValEmail
+        let xPass = retValPassword 
+        let xNewPass = retValNewPassword
 
-    //     let x = retVal 
-                
-    //     console.log(x)
-        
-    //     browser.get(URL.changePassword)
-    //     user.currentPassword.sendKeys(user.accountPassword)
-    //     // user.newPassword.sendKeys(x)
-    //     // user.repeatNewPassword.sendKeys(x)
-    //     user.setNewPasswordBtn.click();
-    //     //expect(await user.updated.isPresent()).toBe(true)
-    // })
+        browser.get(URL.signUp)
+        browser.sleep(1000)
+        user.signUpEmail.sendKeys(xEmail)
+        user.signUpConfirmEmail.sendKeys(xEmail)
+        user.signUpCreatePassword.sendKeys(xPass)
+        user.signUpDisplayName.sendKeys(xName)
+        user.signUpBirthDay.sendKeys('12')
+        user.signUpBirthYear.sendKeys('1998')
+        await element(by.id("month")).element(by.cssContainingText('option', 'January')).click();
+		await element(by.id("month")).click();
+        user.signUpGender.click();
+        browser.sleep(5000);
+        user.signUpBtn.click();
+       
+        browser.get(URL.overview)
+        browser.get(URL.changePassword)
+        user.currentPassword.sendKeys(xPass)
+        user.newPassword.sendKeys(xNewPass)
+        user.repeatNewPassword.sendKeys(xNewPass)
+        user.setNewPasswordBtn.click();
+        expect(await user.updated.isPresent()).toBe(true)
+    });
 
 })
