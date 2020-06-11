@@ -1,6 +1,6 @@
 Tested Features:
 
-Log In 
+Log In, 
 Sign Up
 
 https://github.com/AhmedFawzi99/Android-Final
