@@ -1,16 +1,35 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-import { browser, element, by, protractor, Browser } from 'protractor'
-import { Playlist } from '../pages/Playlist'
-
 var protractor_1 = require("protractor");
 
+describe('Help Main Page tests',function(){
+    
+    
+    beforeEach(function () {
+        
+    onPrepare: async () => {
+    
+        await protractor_1.browser.waitForAngularEnabled(false);
+        protractor_1.browser.get('https://support.spotify.com/eg-en/?_ga=2.151724666.2105580048.1591620644-974573419.1582503200');
+
+    }
 
 
-describe('HelpMainPage',function(){
+    onPrepare: async () => {
+    
+        await protractor_1.browser.waitForAngularEnabled(false);
+    }
+    protractor_1.browser.ignoreSynchronization = true
     protractor_1.browser.get('https://support.spotify.com/eg-en/?_ga=2.151724666.2105580048.1591620644-974573419.1582503200');
 
+
+    
+    
+        
+  })
+
+
+
     it('tests help button',function(){
+
         
 
         protractor_1.element(by.id('nav-link-help')).click();
@@ -81,7 +100,7 @@ describe('HelpMainPage',function(){
        
     });
 
-    it('tests search bar case 4 (input empty space)',function(){
+    it('tests search bar case 4 (empty space)',function(){
         protractor_1.by.xpath("//h1[.='How can we help you?']")
         protractor_1.element(protractor_1.by.id('search')).sendkeys(' ');
         if (protractor_1.element(protractor_1.by.xpath('protractor_1')).click())
@@ -99,7 +118,7 @@ describe('HelpMainPage',function(){
        
     });
 
-    it('tests search bar case 5 (input dot)',function(){
+    it('tests search bar case 4 (dot)',function(){
         protractor_1.by.xpath("//h1[.='How can we help you?']")
         protractor_1.element(protractor_1.by.id('search')).sendkeys('.');
         if (protractor_1.element(protractor_1.by.xpath('protractor_1')).click())
@@ -206,6 +225,8 @@ describe('HelpMainPage',function(){
         protractor_1.element(protractor_1.by.css("a[data-ga-event-action='about']")).click()
         expect(protractor_1.browser.getCurrentUrl()).toBe('https://www.spotify.com/eg-en/about-us/contact/?_ga=2.185347690.2105580048.1591620644-974573419.1582503200')
     });
+    protractor_1.browser.sleep(1000);
+
     
     
 
