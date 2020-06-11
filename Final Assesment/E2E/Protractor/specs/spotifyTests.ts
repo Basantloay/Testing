@@ -12,14 +12,14 @@ let URL = new URLs();
 /** 
  * Running E2E Tests on Spotify
  * 
- * Test 1: Invalid login with facebook account
- * Test 2: Valid login with facebook accout
- * Test 3: valid profile editing
- * Test 4: Invalid profile editing
- * Test 5: Buttons navigation
- * Test 6: Valid changing notification settings
- * Test 7: Invalid password change
- * Test 8: Valid password change
+ * Test: Invalid login with facebook account
+ * Test: Valid login with facebook accout
+ * Test: valid profile editing
+ * Test: Invalid profile editing
+ * Test: Buttons navigation
+ * Test: Valid changing notification settings
+ * Test: Invalid password change
+ * Test: Valid password change
  * 
  */
 
