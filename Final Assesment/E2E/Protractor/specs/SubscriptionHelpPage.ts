@@ -1,7 +1,7 @@
 
 var protractor_1 = require("protractor");
 /**
-* This Describe PremiumForFamilyPage
+* This Describe SubscriptionHelpPage
 * @param description  description of test name
 * @param specDefinitions — Function for Jasmine to invoke that will define
 */
