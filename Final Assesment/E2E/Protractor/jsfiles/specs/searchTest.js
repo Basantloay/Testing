@@ -26,11 +26,11 @@ describe('searching for songs and artist . \n', function () {
             search1.clicksearchBtn();
             protractor_2.browser.sleep(50);
             search1.searchBar.sendKeys('Freedom ');
-            protractor_2.browser.sleep(2000);
+            protractor_2.browser.sleep(1000);
             search1.searchSong.click();
             protractor_2.browser.sleep(50);
             expect(yield search1.Logo.getText()).toContain('Freedom');
-            protractor_2.browser.sleep(2000);
+            protractor_2.browser.sleep(1500);
             search1.pauseBtn.click();
         });
     });
@@ -42,7 +42,7 @@ describe('searching for songs and artist . \n', function () {
             search1.clicksearchBtn();
             protractor_2.browser.sleep(50);
             search1.searchBar.sendKeys("it's you");
-            protractor_2.browser.sleep(1500);
+            protractor_2.browser.sleep(1000);
             search1.searchSong.click();
             protractor_2.browser.sleep(50);
             expect(yield search1.Logo.getText()).toContain('YOU');

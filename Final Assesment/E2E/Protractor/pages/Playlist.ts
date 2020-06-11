@@ -14,7 +14,7 @@ export class Playlist {
   createPlaylistHomeBtn = element(by.className('fcdf941c8ffa7d0878af0a4f04aa05bb-scss'))
   LikedSongBtn = element(by.className('ce8ac4aabb35a48dc93a67cf4fedd99c-scss'))
   Logo = element(by.tagName('h1')) // 'Create your first playlist'
-  Logo2 = element(by.xpath("//h1[@class='_587844af67ca3c14dbf7deb3d5e64f69-scss d437f883c49a54bba1849d160344bcec-scss dc1cc34e88857bd0de4d7a4dc3c528a5-scss']")) //create new playlist
+  Logo2 = element(by.xpath("//h1[@class='_587844af67ca3c14dbf7deb3d5e64f69-scss d437f883c49a54bba1849d160344bcec-scss dc1cc34e88857bd0de4d7a4dc3c528a5-scss']")) // create new playlist
   createPlaylistLibrary = element(by.className('_2221af4e93029bedeab751d04fab4b8b-scss _1edf52628d509e6baded2387f6267588-scss _4a19a959428c34075eef50bd44ab468f-scss'))
   playlistNameTextBox = element(by.className('inputBox-input'))
   cancelBtn = element(by.css('._56a12d0978529b654affa11ca9390bd7-scss'))
@@ -36,10 +36,20 @@ export class Playlist {
   firstSong = element(by.className('tracklist-name ellipsis-one-line'))
   homeBtn = element(by.className('ellipsis-one-line f92d0df6ae4da826d7d532fbf608d469-scss'))
   addToPlaylist = element(by.xpath("//nav[@class='react-contextmenu react-contextmenu--visible']/div[.='Add to Playlist']"))
-  addPlaylistIcon = element(by.className('mo-coverArt-hover'))// Demo1
+  addPlaylistIcon = element(by.xpath("//div[@class='mo-coverArt-hover']"))// Demo1
   chooseDemo1fromSideBar = element(by.className('RootlistItemPlaylist__text-wrapper'))
   songOptions = element(by.className('spoticon-ellipsis-16'))
   removeSong = element(by.xpath("//div[.='Remove from this Playlist']"))
+  albumOptions = element(by.buttonText('More'))
+  albumAdd = element(by.xpath('//nav[2]'))
+  firstTrack = element(by.className("It's You"))
+  likeSong= element(by.Xpath("//footer[@class='now-playing-bar-container']//button[@class='control-button spoticon-heart-16']"))
+  trackOptions= element(by.xpath("//section[@class='tracklist-container tracklist-container--rendering-bug-hack-2019-07-08']/ol[@class='tracklist']/div[1]//div[@class='spoticon-ellipsis-16']"))
+  songAfterRemoved= element(by.className('tracklist-name ellipsis-one-line'))
+  likedSong= element(by.className('tracklist-name ellipsis-one-line'))
+  FollowBtn= element(by.className('b49b68b14a1771a4cb36313f2b350e84-scss'))
+  ArtistsBtn = element(by.className('f92d0df6ae4da826d7d532fbf608d469-scss'))
+  ArtistName = element(by.className('_8490cd5262e3aefef6d3f963bcd886d2-scss'))
   clickonUserIcon () {
     this.userIcon.click()
   }
@@ -80,3 +90,4 @@ export class Playlist {
     this.LikedSongBtn.click()
   }
 }
+// <button type="button" class="a319647e0b4638c35cbe1cc56bbe8710-scss" title="More"><div class="spoticon-ellipsis-32"></div></button>

@@ -68,8 +68,8 @@ describe('PlayLists creating and Deleting tests. \n', function () {
       expect<any>(await playlist1.Logo2.getText()).toContain('Create new playlist')
       playlist1.playlistNameTextBox.sendKeys('Demo1')
       playlist1.clickCreate()
-      browser.sleep(200)
-      // expect<any>(await playlist1.Logo.getText()).toContain('Demo1')
+      browser.sleep(1200)
+      expect<any>(await playlist1.Logo.getText()).toContain('Demo1')
       playlist1.backBtn.click()
       index === 1 ? flag = true : flag = false
     }
