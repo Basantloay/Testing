@@ -2,7 +2,7 @@ import { browser, element, by } from 'protractor'
 
 export class Playlist {
   User1Mail : string = 'testinge2e20@gmail.com'
-  User1Password : string = 'E2E123456'
+  User1Password : string = '123456E2e'
   User2Mail : string = 'testinge2e220@gmail.com'
   User2Password : string = 'E2E123456'
   loginBtn = element(by.className('_2221af4e93029bedeab751d04fab4b8b-scss _1edf52628d509e6baded2387f6267588-scss'))
@@ -31,6 +31,13 @@ export class Playlist {
   demo3 = element(by.className('_9ec767915488d36334c49b036bebcaea-scss'))
   // options3
   backBtn= element(by.className('_66febc2caff37c822a831232b6e73171-scss _7d846137186e6bfd0724a32565d216cb-scss'))
+  firstSong = element(by.className('f79dd23c27c3352da3ac3ba62d78f8ea-scss'))
+  homeBtn = element(by.className('ellipsis-one-line f92d0df6ae4da826d7d532fbf608d469-scss'))
+  addToPlaylist = element(by.xpath("//nav[@class='react-contextmenu react-contextmenu--visible']/div[.='Add to Playlist']"))
+  addPlaylistIcon = element(by.className('mo-coverArt-hover'))// Demo1
+  chooseDemo1fromSideBar = element(by.className('RootlistItemPlaylist__text-wrapper'))
+  songOptions = element(by.className('_2221af4e93029bedeab751d04fab4b8b-scss c74a35c3aba27d72ee478f390f5d8c16-scss'))
+  removeSong = element(by.xpath("//div[.='Remove from this Playlist']"))
   clickonUserIcon () {
     this.userIcon.click()
   }

@@ -10,7 +10,7 @@ export const config: Config = {
   capabilities: {
     browserName: 'chrome'
   },
-  specs: ['./specs/PlaylistManagerTest.js', "./specs/spotifyTests.js"],
+  specs: ['./specs/PlaylistManagerTest.js'],// "./specs/spotifyTests.js"],
 
   // seleniumAddress: 'http://localhost:4444/wd/hub',
 
