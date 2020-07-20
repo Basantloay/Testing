@@ -1,8 +1,8 @@
-# The Stress test is runned on official Spotify.(https://open.spotify.com/)
+#The Stress tests is made with Apache JMeter tool.
 
-**The Stress tests is made with Apache JMeter tool.
+**The tests are runned on official Spotify.
 
-**The HTTPS requests for:
+**The features are:
 
 1-  Search for song
 
